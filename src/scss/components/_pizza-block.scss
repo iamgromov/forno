@@ -1,13 +1,17 @@
 @import '../variables';
 
+.pizza-block-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .pizza-block {
   width: 280px;
   text-align: center;
   margin-bottom: 65px;
-
-  &:not(:nth-of-type(4n)) {
-    margin-right: 35px;
-  }
+  // padding: 4px;
+  // border: 1px solid $gray-line;
+  // border-radius: 24px;
 
   &__image {
     width: 260px;

@@ -1,3 +1,5 @@
-const API_URL = `https://68cbb8b2716562cf5074c888.mockapi.io/items`;
+const API_KEY = import.meta.env.VITE_API_URL_KEY as string;
+
+const API_URL = `https://${API_KEY}.mockapi.io/items`;
 
 export { API_URL };

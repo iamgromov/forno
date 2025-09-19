@@ -1,7 +1,7 @@
 export interface IPizzaItem {
   id: number;
   imageUrl: string;
-  name: string;
+  title: string;
   types: number[];
   sizes: number[];
   price: number;

@@ -3,9 +3,21 @@ import type { IPizzasArray } from '../types/pizzas.interface';
 import { API_URL } from './config';
 
 /** Метод для получения данных */
-const getItems = async (): Promise<IPizzasArray> => {
+const getItems = async (
+  categoryId,
+  sortType,
+  searchValue,
+  currentPage
+): Promise<IPizzasArray> => {
   try {
-    const response: AxiosResponse<IPizzasArray> = await axios.get(API_URL);
+    const sortBy = sortType.sortProperty.replace('-', '');
+    const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
+    const category = categoryId ? `category=${categoryId}` : '';
+    const search = searchValue ? `&search=${searchValue}` : '';
+
+    const response: AxiosResponse<IPizzasArray> = await axios.get(
+      `${API_URL}?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
+    );
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error as AxiosError | Error)) {

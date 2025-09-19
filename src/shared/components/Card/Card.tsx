@@ -4,7 +4,7 @@ import type { ICardProps } from '../../types/card.interface';
 const Card: FC<ICardProps> = ({
   // id,
   imageUrl,
-  name,
+  title,
   types,
   sizes,
   price,
@@ -25,7 +25,7 @@ const Card: FC<ICardProps> = ({
     <div className='pizza-block-wrapper'>
       <div className='pizza-block'>
         <img className='pizza-block__image' src={imageUrl} alt='Pizza' />
-        <h4 className='pizza-block__title'>{name}</h4>
+        <h4 className='pizza-block__title'>{title}</h4>
         <div className='pizza-block__selector'>
           <ul>
             {types.map((typeId) => {

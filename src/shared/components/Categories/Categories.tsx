@@ -1,8 +1,6 @@
-import { useState, type FC } from 'react';
+import { type FC } from 'react';
 
-const Categories: FC = () => {
-  const [category, setCategory] = useState(0);
-
+const Categories: FC = ({ categoryId, onChangeCategory }) => {
   const categories = [
     'Все',
     'Мясные',
@@ -19,8 +17,8 @@ const Categories: FC = () => {
           return (
             <li
               key={elem}
-              onClick={() => setCategory(index)}
-              className={category === index ? 'active' : ''}
+              onClick={() => onChangeCategory(index)}
+              className={categoryId === index ? 'active' : ''}
             >
               {elem}
             </li>

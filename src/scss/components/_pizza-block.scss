@@ -15,7 +15,8 @@
 
   &__image {
     width: 260px;
-    // animation: spin 120s linear infinite;
+    animation: spin 120s linear infinite;
+    z-index: 0;
   }
 
   @keyframes spin {

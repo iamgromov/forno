@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, type FC } from 'react';
 
-function Categories() {
+const Categories: FC = () => {
   const [category, setCategory] = useState(0);
 
   const categories = [
@@ -29,6 +29,6 @@ function Categories() {
       </ul>
     </div>
   );
-}
+};
 
 export default Categories;

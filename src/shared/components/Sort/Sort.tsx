@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, type FC } from 'react';
 
-function Sort() {
+const Sort: FC = () => {
   const [visible, setVisible] = useState(false);
   const [selected, setSelected] = useState(0);
 
@@ -48,6 +48,6 @@ function Sort() {
       )}
     </div>
   );
-}
+};
 
 export default Sort;

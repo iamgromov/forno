@@ -1,12 +1,10 @@
-import { useEffect, useState } from 'react';
-import type { IPizzaItem } from '../shared/types/pizzas.interface';
-import { getItems } from '../shared/api/api';
-import Categories from '../shared/components/Categories';
-import Sort from '../shared/components/Sort';
-import CardSkeleton from '../shared/ui/CardSkeleton';
-import Card from '../shared/components/Card';
+import { useEffect, useState, type FC, type ReactElement } from 'react';
+import type { IPizzaItem } from '../../shared/types/pizzas.interface';
+import { getItems } from '../../shared/api/api';
+import { Card, Categories, Sort } from '../../shared/components';
+import { CardSkeleton } from '../../shared/ui';
 
-const Home = () => {
+const Home: FC = (): ReactElement => {
   const [items, setItems] = useState<IPizzaItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -19,6 +17,8 @@ const Home = () => {
       .catch((err: unknown) => {
         console.error(err);
       });
+
+    window.scrollTo(0, 0);
   }, []);
   return (
     <>
@@ -31,12 +31,7 @@ const Home = () => {
         {isLoading
           ? [...new Array(4)].map((_, index) => <CardSkeleton key={index} />)
           : items.map((item) => {
-              return (
-                <Card
-                  key={item.id}
-                  {...item}
-                />
-              );
+              return <Card key={item.id} {...item} />;
             })}
       </div>
     </>

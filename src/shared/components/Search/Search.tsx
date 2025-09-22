@@ -1,8 +1,10 @@
-import type { FC, ReactElement } from 'react';
+import { useContext, type FC, type ReactElement } from 'react';
+import { SearchContext } from '../../../app/App';
 
 import styles from './Search.module.scss';
 
-const Search: FC = ({ searchValue, setSearchValue }): ReactElement => {
+const Search: FC = (): ReactElement => {
+  const { searchValue, setSearchValue } = useContext(SearchContext);
   return (
     <div className={styles.root}>
       <svg
@@ -10,9 +12,9 @@ const Search: FC = ({ searchValue, setSearchValue }): ReactElement => {
         fill='none'
         height='24'
         stroke='currentColor'
-        stroke-linecap='round'
-        stroke-linejoin='round'
-        stroke-width='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='2'
         viewBox='0 0 24 24'
         width='24'
         xmlns='http://www.w3.org/2000/svg'
@@ -35,9 +37,9 @@ const Search: FC = ({ searchValue, setSearchValue }): ReactElement => {
           fill='none'
           height='24'
           stroke='currentColor'
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          stroke-width='2'
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='2'
           viewBox='0 0 24 24'
           width='24'
           xmlns='http://www.w3.org/2000/svg'

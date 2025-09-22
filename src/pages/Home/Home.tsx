@@ -1,19 +1,35 @@
-import { useEffect, useState, type FC, type ReactElement } from 'react';
+import {
+  useContext,
+  useEffect,
+  useState,
+  type FC,
+  type ReactElement,
+} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import type { IPizzaItem } from '../../shared/types/pizzas.interface';
 import { getItems } from '../../shared/api/api';
+import { setCategoryId } from '../../shared/store/slices/filter';
 import { Card, Categories, Pagination, Sort } from '../../shared/components';
 import { CardSkeleton } from '../../shared/ui';
+import { SearchContext } from '../../app/App';
 
-const Home: FC = ({ searchValue }): ReactElement => {
+const Home: FC = (): ReactElement => {
+  const dispatch = useDispatch();
+  const { categoryId, sortType } = useSelector((state) => state.filter);
+
   const [items, setItems] = useState<IPizzaItem[]>([]);
+  const { searchValue } = useContext(SearchContext);
   const [isLoading, setIsLoading] = useState(true);
-  const [categoryId, setCategoryId] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortType, setSortType] = useState({
-    title: 'популярности',
-    sortProperty: 'rating',
-  });
+  // const [sortType, setSortType] = useState({
+  //   title: 'популярности',
+  //   sortProperty: 'rating',
+  // });
+
+  const onChangeCategory = (id) => {
+    dispatch(setCategoryId(id));
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -33,9 +49,9 @@ const Home: FC = ({ searchValue }): ReactElement => {
       <div className='content__top'>
         <Categories
           categoryId={categoryId}
-          onChangeCategory={(i) => setCategoryId(i)}
+          onChangeCategory={onChangeCategory}
         />
-        <Sort sortType={sortType} onChangeSort={(obj) => setSortType(obj)} />
+        <Sort />
       </div>
       <h2 className='content__title'>Все пиццы</h2>
       <div className='content__items'>

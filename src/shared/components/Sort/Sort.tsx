@@ -1,21 +1,27 @@
 import { useState, type FC } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSortType } from '../../store/slices/filter';
 
-const Sort: FC = ({ sortType, onChangeSort }) => {
+const Sort: FC = () => {
+  const dispatch = useDispatch();
+  const sortType = useSelector((state) => state.filter.sortType);
+
   const [visible, setVisible] = useState(false);
 
   const list = [
-    { title: 'популярности', sortProperty: 'rating' },
-    { title: 'популярности', sortProperty: '-rating' },
-    { title: 'цене', sortProperty: 'price' },
-    { title: 'цене', sortProperty: '-price' },
-    { title: 'алфавиту', sortProperty: 'title' },
-    { title: 'алфавиту', sortProperty: '-title' },
+    { title: 'популярности+', sortProperty: 'rating' },
+    { title: 'популярности-', sortProperty: '-rating' },
+    { title: 'цене+', sortProperty: 'price' },
+    { title: 'цене-', sortProperty: '-price' },
+    { title: 'алфавиту+', sortProperty: 'title' },
+    { title: 'алфавиту-', sortProperty: '-title' },
   ];
 
   const handleClick = (obj) => {
-    onChangeSort(obj);
+    dispatch(setSortType(obj));
     setVisible(false);
   };
+
   return (
     <div className='sort'>
       <div className='sort__label'>

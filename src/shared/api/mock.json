@@ -98,5 +98,246 @@
     "price": 285,
     "category": 5,
     "rating": 7
+  },
+
+  {
+    "id": 0,
+    "imageUrl": "https://media.dodostatic.net/image/r:760x760/0198bf57bc517218ab93c762f4b0193e.avif",
+    "title": "Пепперони Фреш с перцем",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 803,
+    "category": 1,
+    "rating": 4
+  },
+  {
+    "id": 1,
+    "imageUrl": "https://example.com/margarita.jpg",
+    "title": "Маргарита",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 700,
+    "category": 1,
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://example.com/gavaiskaya.jpg",
+    "title": "Гавайская",
+    "types": [0],
+    "sizes": [26, 30],
+    "price": 850,
+    "category": 2,
+    "rating": 4
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://example.com/chetire_sizona.jpg",
+    "title": "Четыре сезона",
+    "types": [1],
+    "sizes": [30, 40],
+    "price": 900,
+    "category": 3,
+    "rating": 4
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://example.com/kaprichioza.jpg",
+    "title": "Капричиоза",
+    "types": [0],
+    "sizes": [26, 30, 40],
+    "price": 950,
+    "category": 1,
+    "rating": 5
+  },
+  {
+    "id": 5,
+    "imageUrl": "https://example.com/calzone.jpg",
+    "title": "Кальцоне",
+    "types": [1],
+    "sizes": [30, 40],
+    "price": 870,
+    "category": 4,
+    "rating": 4
+  },
+  {
+    "id": 6,
+    "imageUrl": "https://example.com/napoletana.jpg",
+    "title": "Неаполитанская",
+    "types": [0, 1],
+    "sizes": [26, 30],
+    "price": 920,
+    "category": 1,
+    "rating": 5
+  },
+  {
+    "id": 7,
+    "imageUrl": "https://example.com/proshutto.jpg",
+    "title": "Пицца с прошутто",
+    "types": [0],
+    "sizes": [26, 30],
+    "price": 1000,
+    "category": 2,
+    "rating": 4
+  },
+  {
+    "id": 8,
+    "imageUrl": "https://example.com/tonno.jpg",
+    "title": "Пицца с тунцом",
+    "types": [1],
+    "sizes": [26, 30],
+    "price": 970,
+    "category": 3,
+    "rating": 4
+  },
+  {
+    "id": 9,
+    "imageUrl": "https://example.com/siciliana.jpg",
+    "title": "Сицилийская",
+    "types": [0, 1],
+    "sizes": [30, 40],
+    "price": 860,
+    "category": 3,
+    "rating": 4
+  },
+  {
+    "id": 10,
+    "imageUrl": "https://example.com/amerikano.jpg",
+    "title": "Американо",
+    "types": [0],
+    "sizes": [26, 30],
+    "price": 890,
+    "category": 1,
+    "rating": 3
+  },
+  {
+    "id": 11,
+    "imageUrl": "https://example.com/four_cheese.jpg",
+    "title": "Кватро формаджи",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 1100,
+    "category": 2,
+    "rating": 5
+  },
+  {
+    "id": 12,
+    "imageUrl": "https://example.com/fattoria.jpg",
+    "title": "Фермерская",
+    "types": [1],
+    "sizes": [30, 40],
+    "price": 870,
+    "category": 3,
+    "rating": 4
+  },
+  {
+    "id": 13,
+    "imageUrl": "https://example.com/romana.jpg",
+    "title": "Римская",
+    "types": [0],
+    "sizes": [26, 30],
+    "price": 780,
+    "category": 1,
+    "rating": 4
+  },
+  {
+    "id": 14,
+    "imageUrl": "https://example.com/sarda.jpg",
+    "title": "Сардиния",
+    "types": [0, 1],
+    "sizes": [30, 40],
+    "price": 900,
+    "category": 2,
+    "rating": 4
+  },
+  {
+    "id": 15,
+    "imageUrl": "https://example.com/braccio_di_ferro.jpg",
+    "title": "Пицца силачей",
+    "types": [0],
+    "sizes": [26, 30],
+    "price": 980,
+    "category": 3,
+    "rating": 5
+  },
+  {
+    "id": 16,
+    "imageUrl": "https://example.com/marinara.jpg",
+    "title": "Маринара",
+    "types": [1],
+    "sizes": [26, 30],
+    "price": 720,
+    "category": 1,
+    "rating": 4
+  },
+  {
+    "id": 17,
+    "imageUrl": "https://example.com/prosciutto_funghi.jpg",
+    "title": "Прошутто и грибы",
+    "types": [1],
+    "sizes": [30, 40],
+    "price": 1050,
+    "category": 2,
+    "rating": 4
+  },
+  {
+    "id": 18,
+    "imageUrl": "https://example.com/schiacciata.jpg",
+    "title": "Скьяччата",
+    "types": [0],
+    "sizes": [26],
+    "price": 780,
+    "category": 1,
+    "rating": 3
+  },
+  {
+    "id": 19,
+    "imageUrl": "https://example.com/montanara.jpg",
+    "title": "Монтанара",
+    "types": [0, 1],
+    "sizes": [30],
+    "price": 890,
+    "category": 3,
+    "rating": 4
+  },
+  {
+    "id": 20,
+    "imageUrl": "https://example.com/emiliana.jpg",
+    "title": "Эмилиана",
+    "types": [1],
+    "sizes": [26, 30],
+    "price": 950,
+    "category": 2,
+    "rating": 4
+  },
+  {
+    "id": 21,
+    "imageUrl": "https://example.com/tonno.jpg",
+    "title": "Пицца с тунцом",
+    "types": [0],
+    "sizes": [26, 30],
+    "price": 910,
+    "category": 2,
+    "rating": 4
+  },
+  {
+    "id": 22,
+    "imageUrl": "https://example.com/hawaii_special.jpg",
+    "title": "Гавайская Спешл",
+    "types": [0],
+    "sizes": [30],
+    "price": 890,
+    "category": 2,
+    "rating": 4
+  },
+  {
+    "id": 23,
+    "imageUrl": "https://example.com/meat_lovers.jpg",
+    "title": "Мясная",
+    "types": [1],
+    "sizes": [30, 40],
+    "price": 1050,
+    "category": 1,
+    "rating": 5
   }
 ]

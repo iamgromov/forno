@@ -1,8 +1,13 @@
 import { useState, type FC } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import type { ICardProps } from '../../types/card.interface';
+import { addProduct, type CartItem } from '../../store/slices/cart';
+import { typeNames } from '../../services/typeNames';
+import { sizeValues } from '../../services/sizeValues';
 
 const Card: FC<ICardProps> = ({
-  // id,
+  id,
   imageUrl,
   title,
   types,
@@ -11,14 +16,27 @@ const Card: FC<ICardProps> = ({
   // category,
   // rating,
 }) => {
-  const [count, setCount] = useState(0);
+  const dispatch = useDispatch();
+  const cartItem = useSelector((state) =>
+    state.cart.items.find((obj) => obj.id == id)
+  );
+
   const [activeType, setActiveType] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
 
-  const typeNames = ['тонкое', 'традиционное'];
+  const count = cartItem ? cartItem.count : 0;
 
-  const increaseCounter = () => {
-    setCount(count + 1);
+  const onClickAdd = () => {
+    const item: CartItem = {
+      id,
+      price,
+      imageUrl,
+      title,
+      type: typeNames[activeType],
+      size: sizeValues[activeSize],
+    };
+
+    dispatch(addProduct(item));
   };
 
   return (
@@ -57,7 +75,7 @@ const Card: FC<ICardProps> = ({
         <div className='pizza-block__bottom'>
           <div className='pizza-block__price'>от {price} ₽</div>
           <div
-            onClick={increaseCounter}
+            onClick={onClickAdd}
             className='button button--outline button--add'
           >
             <svg
@@ -73,7 +91,7 @@ const Card: FC<ICardProps> = ({
               />
             </svg>
             <span>Добавить</span>
-            <i>{count}</i>
+            {count > 0 && <i>{count}</i>}
           </div>
         </div>
       </div>

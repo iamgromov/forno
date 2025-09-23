@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-export interface IFilterState {
+export interface FilterState {
   categoryId: number;
   currentPage: number;
   sortType: {
@@ -9,7 +9,7 @@ export interface IFilterState {
   };
 }
 
-const initialState: IFilterState = {
+const initialState: FilterState = {
   categoryId: 0,
   currentPage: 1,
   sortType: {

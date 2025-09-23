@@ -1,9 +1,14 @@
-import { Link } from 'react-router-dom';
 import type { FC } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { Search } from '../';
 
 const Header: FC = () => {
+  const { totalPrice, items } = useSelector((state) => state.cart);
+
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+
   return (
     <div className='header'>
       <div className='container'>
@@ -28,7 +33,7 @@ const Header: FC = () => {
 
         <div className='header__cart'>
           <Link to='/cart' className='button button--cart'>
-            <span className='button__price'>520 ₽</span>
+            <span className='button__price'>{totalPrice} ₽</span>
             <div className='button__delimiter'></div>
             <svg
               width='18'
@@ -59,7 +64,7 @@ const Header: FC = () => {
                 strokeLinejoin='round'
               />
             </svg>
-            <span>3</span>
+            <span>{totalCount}</span>
           </Link>
         </div>
       </div>

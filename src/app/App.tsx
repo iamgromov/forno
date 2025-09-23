@@ -1,9 +1,4 @@
-import {
-  createContext,
-  useState,
-  type Dispatch,
-  type SetStateAction,
-} from 'react';
+import { createContext, useState, type Dispatch, type SetStateAction } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { Header } from '../shared/components';
@@ -16,9 +11,7 @@ interface SearchContextType {
   setSearchValue: Dispatch<SetStateAction<string>>;
 }
 
-export const SearchContext = createContext<SearchContextType | undefined>(
-  undefined
-);
+export const SearchContext = createContext<SearchContextType | undefined>(undefined);
 
 const App = () => {
   const [searchValue, setSearchValue] = useState<string>('');

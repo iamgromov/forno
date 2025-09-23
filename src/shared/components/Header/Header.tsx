@@ -2,20 +2,12 @@ import { Link } from 'react-router-dom';
 import type { FC } from 'react';
 
 import { Search } from '../';
-// import logo from '../../../assets/img/pizza-logo.svg';
 
 const Header: FC = () => {
   return (
     <div className='header'>
       <div className='container'>
         <Link to='/'>
-          {/* <div className='header__logo'>
-            <img width='38' src={logo} alt='Pizza logo' />
-            <div>
-              <h1>Forno</h1>
-              <p>самая вкусная пицца во вселенной</p>
-            </div>
-          </div> */}
           <svg
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 14.5 256.6499938964844 40.5'

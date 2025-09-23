@@ -1,29 +1,39 @@
-import { useState, type FC } from 'react';
+import { useEffect, useRef, useState, type FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { setSortType } from '../../store/slices/filter';
+import { sortList } from '../../services/sortList';
 
 const Sort: FC = () => {
   const dispatch = useDispatch();
   const sortType = useSelector((state) => state.filter.sortType);
+  const sortRef = useRef();
 
   const [visible, setVisible] = useState(false);
 
-  const list = [
-    { title: 'популярности+', sortProperty: 'rating' },
-    { title: 'популярности-', sortProperty: '-rating' },
-    { title: 'цене+', sortProperty: 'price' },
-    { title: 'цене-', sortProperty: '-price' },
-    { title: 'алфавиту+', sortProperty: 'title' },
-    { title: 'алфавиту-', sortProperty: '-title' },
-  ];
-
-  const handleClick = (obj) => {
+  const handleClickSortType = (obj) => {
     dispatch(setSortType(obj));
     setVisible(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const path = event.composedPath();
+
+      if (!path.includes(sortRef.current)) {
+        setVisible(false);
+      }
+    };
+
+    document.body.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.body.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className='sort'>
+    <div ref={sortRef} className='sort'>
       <div className='sort__label'>
         <svg
           width='10'
@@ -43,11 +53,11 @@ const Sort: FC = () => {
       {visible && (
         <div className='sort__popup'>
           <ul>
-            {list.map((obj) => {
+            {sortList.map((obj) => {
               return (
                 <li
                   key={obj.title}
-                  onClick={() => handleClick(obj)}
+                  onClick={() => handleClickSortType(obj)}
                   className={
                     sortType.sortProperty === obj.sortProperty ? 'active' : ''
                   }

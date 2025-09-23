@@ -22,17 +22,18 @@
 
   &:focus {
     border: 1px solid rgba(0, 0, 0, 0.2);
-    width: 400px;
+    // width: 400px;
   }
 }
 
 .clear__icon {
-  width: 14px;
-  height: 14px;
+  width: 30px;
+  height: 30px;
   opacity: 0.5;
   position: absolute;
   right: 20px;
-  top: 20px;
+  top: 10px;
+  padding: 10px;
   cursor: pointer;
 
   &:hover {

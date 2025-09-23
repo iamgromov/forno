@@ -1,49 +1,94 @@
 import {
   useContext,
   useEffect,
+  useRef,
   useState,
   type FC,
   type ReactElement,
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import qs from 'qs';
 
 import type { IPizzaItem } from '../../shared/types/pizzas.interface';
 import { getItems } from '../../shared/api/api';
-import { setCategoryId } from '../../shared/store/slices/filter';
+import {
+  setCategoryId,
+  setCurrentPage,
+  setFilters,
+} from '../../shared/store/slices/filter';
 import { Card, Categories, Pagination, Sort } from '../../shared/components';
 import { CardSkeleton } from '../../shared/ui';
 import { SearchContext } from '../../app/App';
+import { useNavigate } from 'react-router-dom';
+import { sortList } from '../../shared/services/sortList';
 
 const Home: FC = (): ReactElement => {
   const dispatch = useDispatch();
-  const { categoryId, sortType } = useSelector((state) => state.filter);
+  const { categoryId, currentPage, sortType } = useSelector(
+    (state) => state.filter
+  );
+  const navigate = useNavigate();
+  const isSearch = useRef(false);
+  const isMounted = useRef(false);
 
   const [items, setItems] = useState<IPizzaItem[]>([]);
   const { searchValue } = useContext(SearchContext);
   const [isLoading, setIsLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
-  // const [sortType, setSortType] = useState({
-  //   title: 'популярности',
-  //   sortProperty: 'rating',
-  // });
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
   };
 
+  const onChangePage = (number) => {
+    dispatch(setCurrentPage(number));
+  };
+
   useEffect(() => {
-    setIsLoading(true);
-    getItems(categoryId, sortType, searchValue, currentPage)
-      .then((data: IPizzaItem[]) => {
-        setItems(data);
-        setIsLoading(false);
-      })
-      .catch((err: unknown) => {
-        console.error(err);
+    if (isMounted.current) {
+      const queryString = qs.stringify({
+        sortProperty: sortType.sortProperty,
+        categoryId,
+        currentPage,
       });
 
+      navigate(`?${queryString}`);
+    }
+
+    isMounted.current = true;
+  }, [categoryId, sortType, searchValue, currentPage, navigate]);
+
+  useEffect(() => {
+    if (window.location.search) {
+      const params = qs.parse(window.location.search.substring(1));
+
+      const sortType = sortList.find(
+        (item) => item.sortProperty === params.sortProperty
+      );
+
+      dispatch(setFilters({ ...params, sortType }));
+
+      isSearch.current = true;
+    }
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
+
+    if (!isSearch.current) {
+      setIsLoading(true);
+      getItems(categoryId, sortType, searchValue, currentPage)
+        .then((data: IPizzaItem[]) => {
+          setItems(data);
+          setIsLoading(false);
+        })
+        .catch((err: unknown) => {
+          console.error(err);
+        });
+    }
+
+    isSearch.current = false;
   }, [categoryId, sortType, searchValue, currentPage]);
+
   return (
     <>
       <div className='content__top'>
@@ -61,7 +106,7 @@ const Home: FC = (): ReactElement => {
               return <Card key={item.id} {...item} />;
             })}
       </div>
-      <Pagination onChangePage={(number) => setCurrentPage(number)} />
+      <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </>
   );
 };

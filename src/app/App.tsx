@@ -1,13 +1,27 @@
+import {
+  createContext,
+  useState,
+  type Dispatch,
+  type SetStateAction,
+} from 'react';
 import { Route, Routes } from 'react-router-dom';
+
 import { Header } from '../shared/components';
 import { Cart, Home, NotFound } from '../pages';
-import '../scss/app.scss';
-import { createContext, useState } from 'react';
 
-export const SearchContext = createContext('');
+import '../scss/app.scss';
+
+interface SearchContextType {
+  searchValue: string;
+  setSearchValue: Dispatch<SetStateAction<string>>;
+}
+
+export const SearchContext = createContext<SearchContextType | undefined>(
+  undefined
+);
 
 const App = () => {
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState<string>('');
 
   return (
     <div className='wrapper'>

@@ -1,10 +1,44 @@
-import { useContext, type FC, type ReactElement } from 'react';
+import {
+  useCallback,
+  useContext,
+  useRef,
+  useState,
+  type ChangeEvent,
+  type FC,
+  type ReactElement,
+  type RefObject,
+} from 'react';
+import debounce from 'lodash.debounce';
+
 import { SearchContext } from '../../../app/App';
 
 import styles from './Search.module.scss';
 
 const Search: FC = (): ReactElement => {
-  const { searchValue, setSearchValue } = useContext(SearchContext);
+  const [value, setValue] = useState<string>('');
+  const { setSearchValue } = useContext(SearchContext);
+
+  const inputRef: RefObject<HTMLInputElement> = useRef<HTMLInputElement>(null);
+
+  const onClickClear = (): void => {
+    setValue('');
+    setSearchValue('');
+
+    inputRef?.current.focus();
+  };
+
+  const updateSearchValue = useCallback(
+    debounce((str: string) => {
+      setSearchValue(str);
+    }, 400),
+    []
+  );
+
+  const onChangeInput = (event: ChangeEvent<HTMLInputElement>): void => {
+    setValue(event.target.value);
+    updateSearchValue(event.target.value);
+  };
+
   return (
     <div className={styles.root}>
       <svg
@@ -24,15 +58,16 @@ const Search: FC = (): ReactElement => {
       </svg>
 
       <input
-        value={searchValue}
-        onChange={(event) => setSearchValue(event.target.value)}
+        ref={inputRef}
+        value={value}
+        onChange={onChangeInput}
         placeholder='Поиск..'
         className={styles.input}
       />
 
-      {searchValue && (
+      {value && (
         <svg
-          onClick={() => setSearchValue('')}
+          onClick={onClickClear}
           className={styles.clear__icon}
           fill='none'
           height='24'

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { BackIcon, BasketIcon, CartIcon } from '../../assets/icons';
-import { CartItem } from '../../shared/components';
+import { CartEmpty, CartItem } from '../../shared/components';
 import { clearCart } from '../../shared/store/slices/cart';
 
 const Cart: FC = (): ReactElement => {
@@ -15,6 +15,8 @@ const Cart: FC = (): ReactElement => {
   const onClickClear = () => {
     dispatch(clearCart());
   };
+
+  if (!totalPrice) return <CartEmpty />;
 
   return (
     <div className='container container--cart'>

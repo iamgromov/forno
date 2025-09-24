@@ -21,8 +21,12 @@ const Header: FC = () => {
 
         <div className='header__cart'>
           <Link to='/cart' className='button button--cart'>
-            <span className='button__price'>{totalPrice} ₽</span>
-            <div className='button__delimiter'></div>
+            {totalPrice ? (
+              <>
+                <span className='button__price'>{totalPrice} ₽</span>
+                <div className='button__delimiter'></div>
+              </>
+            ) : null}
             <CartIcon />
             <span>{totalCount}</span>
           </Link>

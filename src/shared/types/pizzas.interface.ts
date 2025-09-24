@@ -1,4 +1,4 @@
-export interface IPizzaItem {
+export interface PizzaItem {
   id: number;
   imageUrl: string;
   title: string;
@@ -9,4 +9,4 @@ export interface IPizzaItem {
   rating: number;
 }
 
-export type IPizzasArray = Array<IPizzaItem>;
+export type PizzasList = Array<PizzaItem>;

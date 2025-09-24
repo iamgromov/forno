@@ -9,7 +9,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import qs from 'qs';
 
-import type { IPizzaItem } from '../../shared/types/pizzas.interface';
+import type { PizzaItem } from '../../shared/types/pizzas.interface';
 import { getItems } from '../../shared/api/api';
 import {
   setCategoryId,
@@ -31,7 +31,7 @@ const Home: FC = (): ReactElement => {
   const isSearch = useRef(false);
   const isMounted = useRef(false);
 
-  const [items, setItems] = useState<IPizzaItem[]>([]);
+  const [items, setItems] = useState<PizzaItem[]>([]);
   const { searchValue } = useContext(SearchContext);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -77,7 +77,7 @@ const Home: FC = (): ReactElement => {
     if (!isSearch.current) {
       setIsLoading(true);
       getItems(categoryId, sortType, searchValue, currentPage)
-        .then((data: IPizzaItem[]) => {
+        .then((data: PizzaItem[]) => {
           setItems(data);
           setIsLoading(false);
         })

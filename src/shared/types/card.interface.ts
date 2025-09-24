@@ -1,3 +1,3 @@
-import type { IPizzaItem } from './pizzas.interface';
+import type { PizzaItem } from './pizzas.interface';
 
-export interface ICardProps extends IPizzaItem {}
+export interface CardProps extends PizzaItem {}

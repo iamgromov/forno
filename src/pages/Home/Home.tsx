@@ -1,32 +1,19 @@
-import {
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-  type FC,
-  type ReactElement,
-} from 'react';
+import { useContext, useEffect, useRef, useState, type FC, type ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import qs from 'qs';
 
 import type { PizzaItem } from '../../shared/types/pizzas.interface';
 import { getItems } from '../../shared/api/api';
-import {
-  setCategoryId,
-  setCurrentPage,
-  setFilters,
-} from '../../shared/store/slices/filter';
+import { setCategoryId, setCurrentPage, setFilters } from '../../shared/store/slices/filter';
 import { Card, Categories, Pagination, Sort } from '../../shared/components';
 import { CardSkeleton } from '../../shared/ui';
 import { SearchContext } from '../../app/App';
 import { useNavigate } from 'react-router-dom';
-import { sortList } from '../../shared/services/sortList';
+import { SORT_LIST } from '../../shared/constants';
 
 const Home: FC = (): ReactElement => {
   const dispatch = useDispatch();
-  const { categoryId, currentPage, sortType } = useSelector(
-    (state) => state.filter
-  );
+  const { categoryId, currentPage, sortType } = useSelector((state) => state.filter);
   const navigate = useNavigate();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
@@ -61,9 +48,7 @@ const Home: FC = (): ReactElement => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
 
-      const sortType = sortList.find(
-        (item) => item.sortProperty === params.sortProperty
-      );
+      const sortType = SORT_LIST.find((item) => item.sortProperty === params.sortProperty);
 
       dispatch(setFilters({ ...params, sortType }));
 
@@ -92,10 +77,7 @@ const Home: FC = (): ReactElement => {
   return (
     <>
       <div className='content__top'>
-        <Categories
-          categoryId={categoryId}
-          onChangeCategory={onChangeCategory}
-        />
+        <Categories categoryId={categoryId} onChangeCategory={onChangeCategory} />
         <Sort />
       </div>
       <h2 className='content__title'>Все пиццы</h2>

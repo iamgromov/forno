@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setSortType } from '../../store/slices/filter';
-import { sortList } from '../../services/sortList';
+import { SORT_LIST } from '../../constants/';
 
 const Sort: FC = () => {
   const dispatch = useDispatch();
@@ -53,14 +53,12 @@ const Sort: FC = () => {
       {visible && (
         <div className='sort__popup'>
           <ul>
-            {sortList.map((obj) => {
+            {SORT_LIST.map((obj) => {
               return (
                 <li
                   key={obj.title}
                   onClick={() => handleClickSortType(obj)}
-                  className={
-                    sortType.sortProperty === obj.sortProperty ? 'active' : ''
-                  }
+                  className={sortType.sortProperty === obj.sortProperty ? 'active' : ''}
                 >
                   {obj.title}
                 </li>

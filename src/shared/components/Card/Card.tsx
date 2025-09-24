@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import type { CardProps } from '../../types/card.interface';
 import { addProduct, type CartItem } from '../../store/slices/cart';
-import { typeNames } from '../../services/typeNames';
-import { sizeValues } from '../../services/sizeValues';
 import { PlusIcon } from '../../../assets/icons';
+import { PRODUCT_SIZES, PRODUCT_TYPES } from '../../constants';
 
 const Card: FC<CardProps> = ({
   id,
@@ -31,8 +30,8 @@ const Card: FC<CardProps> = ({
       price,
       imageUrl,
       title,
-      type: typeNames[activeType],
-      size: sizeValues[activeSize],
+      type: PRODUCT_TYPES[activeType],
+      size: PRODUCT_SIZES[activeSize],
     };
 
     dispatch(addProduct(item));
@@ -52,7 +51,7 @@ const Card: FC<CardProps> = ({
                   className={activeType === typeId ? 'active' : ''}
                   onClick={() => setActiveType(typeId)}
                 >
-                  {typeNames[typeId]}
+                  {PRODUCT_TYPES[typeId]}
                 </li>
               );
             })}

@@ -8,5 +8,3 @@ export interface PizzaItem {
   category: number;
   rating: number;
 }
-
-export type PizzasList = Array<PizzaItem>;

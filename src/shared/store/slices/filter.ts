@@ -7,6 +7,7 @@ export interface FilterState {
     title: string;
     sortProperty: string;
   };
+  searchValue: string;
 }
 
 const initialState: FilterState = {
@@ -16,6 +17,7 @@ const initialState: FilterState = {
     title: 'популярности',
     sortProperty: 'rating',
   },
+  searchValue: '',
 };
 
 export const filterSlice = createSlice({
@@ -25,10 +27,7 @@ export const filterSlice = createSlice({
     setCategoryId: (state, action: PayloadAction<number>) => {
       state.categoryId = action.payload;
     },
-    setSortType: (
-      state,
-      action: PayloadAction<{ title: string; sortProperty: string }>
-    ) => {
+    setSortType: (state, action: PayloadAction<{ title: string; sortProperty: string }>) => {
       state.sortType = action.payload;
     },
     setCurrentPage: (state, action: PayloadAction<number>) => {
@@ -39,10 +38,13 @@ export const filterSlice = createSlice({
       state.currentPage = Number(action.payload.currentPage);
       state.sortType = action.payload.sortType;
     },
+    setSearchValue: (state, action: PayloadAction<string>) => {
+      state.searchValue = action.payload;
+    },
   },
 });
 
-export const { setCategoryId, setCurrentPage, setSortType, setFilters } =
+export const { setCategoryId, setCurrentPage, setSortType, setFilters, setSearchValue } =
   filterSlice.actions;
 
 export default filterSlice.reducer;

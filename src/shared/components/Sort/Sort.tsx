@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setSortType } from '../../store/slices/filter';
 import { SORT_LIST } from '../../constants/';
+import { selectors } from '../../store/selectors';
 
 const Sort: FC = () => {
   const dispatch = useDispatch();
-  const sortType = useSelector((state) => state.filter.sortType);
+  const sortType = useSelector(selectors.sortTypeSelector);
   const sortRef = useRef();
 
   const [visible, setVisible] = useState(false);

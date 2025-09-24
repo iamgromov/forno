@@ -4,9 +4,10 @@ import { useSelector } from 'react-redux';
 
 import { CartIcon, Logo } from '../../../assets/icons';
 import { Search } from '../';
+import { selectors } from '../../store/selectors';
 
 const Header: FC = () => {
-  const { totalPrice, items } = useSelector((state) => state.cart);
+  const { items, totalPrice } = useSelector(selectors.cartSelector);
 
   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
 

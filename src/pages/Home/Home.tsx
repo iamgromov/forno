@@ -1,26 +1,22 @@
-import { useContext, useEffect, useRef, useState, type FC, type ReactElement } from 'react';
+import { useEffect, useRef, type FC, type ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import qs from 'qs';
 
-import type { PizzaItem } from '../../shared/types/pizzas.interface';
-import { getItems } from '../../shared/api/api';
 import { setCategoryId, setCurrentPage, setFilters } from '../../shared/store/slices/filter';
-import { Card, Categories, Pagination, Sort } from '../../shared/components';
+import { Card, Categories, ErrorBlock, Pagination, Sort } from '../../shared/components';
 import { CardSkeleton } from '../../shared/ui';
-import { SearchContext } from '../../app/App';
 import { useNavigate } from 'react-router-dom';
-import { SORT_LIST } from '../../shared/constants';
+import { CATEGORIES, SORT_LIST } from '../../shared/constants';
+import { fetchProducts } from '../../shared/store/slices/products';
+import { selectors } from '../../shared/store/selectors';
 
 const Home: FC = (): ReactElement => {
   const dispatch = useDispatch();
-  const { categoryId, currentPage, sortType } = useSelector((state) => state.filter);
+  const { categoryId, currentPage, sortType, searchValue } = useSelector(selectors.filterSelector);
+  const { status, products } = useSelector(selectors.productsSelector);
   const navigate = useNavigate();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
-
-  const [items, setItems] = useState<PizzaItem[]>([]);
-  const { searchValue } = useContext(SearchContext);
-  const [isLoading, setIsLoading] = useState(true);
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
@@ -59,20 +55,17 @@ const Home: FC = (): ReactElement => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
+    const sortBy = sortType.sortProperty.replace('-', '');
+    const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
+    const category = categoryId ? `category=${categoryId}` : '';
+    const search = searchValue ? `&search=${searchValue}` : '';
+
     if (!isSearch.current) {
-      setIsLoading(true);
-      getItems(categoryId, sortType, searchValue, currentPage)
-        .then((data: PizzaItem[]) => {
-          setItems(data);
-          setIsLoading(false);
-        })
-        .catch((err: unknown) => {
-          console.error(err);
-        });
+      dispatch(fetchProducts({ currentPage, category, sortBy, order, search }));
     }
 
     isSearch.current = false;
-  }, [categoryId, sortType, searchValue, currentPage]);
+  }, [categoryId, sortType, searchValue, currentPage, dispatch]);
 
   return (
     <>
@@ -80,15 +73,21 @@ const Home: FC = (): ReactElement => {
         <Categories categoryId={categoryId} onChangeCategory={onChangeCategory} />
         <Sort />
       </div>
-      <h2 className='content__title'>Все пиццы</h2>
-      <div className='content__items'>
-        {isLoading
-          ? [...new Array(4)].map((_, index) => <CardSkeleton key={index} />)
-          : items.map((item) => {
-              return <Card key={item.id} {...item} />;
-            })}
-      </div>
-      <Pagination currentPage={currentPage} onChangePage={onChangePage} />
+      <h2 className='content__title'>{CATEGORIES[categoryId]} пиццы</h2>
+      {status === 'error' ? (
+        <ErrorBlock />
+      ) : (
+        <>
+          <div className='content__items'>
+            {status === 'loading'
+              ? [...new Array(4)].map((_, index) => <CardSkeleton key={index} />)
+              : products.map((product) => {
+                  return <Card key={product.id} {...product} />;
+                })}
+          </div>
+          <Pagination currentPage={currentPage} onChangePage={onChangePage} />
+        </>
+      )}
     </>
   );
 };

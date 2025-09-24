@@ -53,7 +53,9 @@ const CartItem: FC = ({ id, count, price, imageUrl, title, type, size }): ReactE
       </div>
       <div className='cart__item-count'>
         <div
-          className='button button--outline button--circle cart__item-count-minus'
+          className={`button ${
+            count == 1 ? 'button--disable' : 'button--outline'
+          } button--circle cart__item-count-minus`}
           onClick={onClickRemove}
         >
           <RemoveIcon />

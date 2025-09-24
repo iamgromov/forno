@@ -5,6 +5,7 @@ import type { CardProps } from '../../types/card.interface';
 import { addProduct, type CartItem } from '../../store/slices/cart';
 import { PlusIcon } from '../../../assets/icons';
 import { PRODUCT_SIZES, PRODUCT_TYPES } from '../../constants';
+import { selectors } from '../../store/selectors';
 
 const Card: FC<CardProps> = ({
   id,
@@ -17,7 +18,7 @@ const Card: FC<CardProps> = ({
   // rating,
 }) => {
   const dispatch = useDispatch();
-  const cartItem = useSelector((state) => state.cart.items.find((obj) => obj.id == id));
+  const cartItem = useSelector(selectors.cartItemByIdSelector(id));
 
   const [activeType, setActiveType] = useState(0);
   const [activeSize, setActiveSize] = useState(0);

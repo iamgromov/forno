@@ -1,19 +1,12 @@
 import { type FC } from 'react';
 
-const Categories: FC = ({ categoryId, onChangeCategory }) => {
-  const categories = [
-    'Все',
-    'Мясные',
-    'Вегетарианская',
-    'Гриль',
-    'Острые',
-    'Закрытые',
-  ];
+import { CATEGORIES } from '../../constants';
 
+const Categories: FC = ({ categoryId, onChangeCategory }) => {
   return (
     <div className='categories'>
       <ul>
-        {categories.map((elem, index) => {
+        {CATEGORIES.map((elem, index) => {
           return (
             <li
               key={elem}

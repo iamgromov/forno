@@ -5,7 +5,7 @@ import qs from 'qs';
 import { setCategoryId, setCurrentPage, setFilters } from '../../shared/store/slices/filter';
 import { Card, Categories, ErrorBlock, Pagination, Sort } from '../../shared/components';
 import { CardSkeleton } from '../../shared/ui';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { CATEGORIES, SORT_LIST } from '../../shared/constants';
 import { fetchProducts } from '../../shared/store/slices/products';
 import { selectors } from '../../shared/store/selectors';
@@ -82,7 +82,11 @@ const Home: FC = (): ReactElement => {
             {status === 'loading'
               ? [...new Array(4)].map((_, index) => <CardSkeleton key={index} />)
               : products.map((product) => {
-                  return <Card key={product.id} {...product} />;
+                  return (
+                    <Link to={`/product/${product.id}`} key={product.id}>
+                      <Card {...product} />
+                    </Link>
+                  );
                 })}
           </div>
           <Pagination currentPage={currentPage} onChangePage={onChangePage} />

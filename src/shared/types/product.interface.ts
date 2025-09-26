@@ -1,5 +1,5 @@
 export interface PizzaItem {
-  id: number;
+  id: string;
   imageUrl: string;
   title: string;
   types: number[];

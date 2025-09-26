@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 export interface CartItem {
-  id: number;
+  id: string;
   count: number;
   price: number;
   imageUrl: string;
@@ -45,7 +45,7 @@ export const cartSlice = createSlice({
         findItem.count--;
       }
     },
-    removeAllSimilarProducts: (state, action: PayloadAction<number>) => {
+    removeAllSimilarProducts: (state, action: PayloadAction<string>) => {
       const findItem = state.items.find((obj) => obj.id == action.payload);
 
       if (findItem) {

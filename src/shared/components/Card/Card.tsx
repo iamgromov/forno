@@ -7,16 +7,7 @@ import { PlusIcon } from '../../../assets/icons';
 import { PRODUCT_SIZES, PRODUCT_TYPES } from '../../constants';
 import { selectors } from '../../store/selectors';
 
-const Card: FC<CardProps> = ({
-  id,
-  imageUrl,
-  title,
-  types,
-  sizes,
-  price,
-  // category,
-  // rating,
-}) => {
+const Card: FC<CardProps> = ({ id, imageUrl, title, types, sizes, price }) => {
   const dispatch = useDispatch();
   const cartItem = useSelector(selectors.cartItemByIdSelector(id));
 

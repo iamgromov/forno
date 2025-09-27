@@ -3,6 +3,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 export interface FilterState {
   categoryId: number;
   currentPage: number;
+  limit: number;
   sortType: {
     title: string;
     sortProperty: string;
@@ -13,6 +14,7 @@ export interface FilterState {
 const initialState: FilterState = {
   categoryId: 0,
   currentPage: 1,
+  limit: 8,
   sortType: {
     title: 'популярности',
     sortProperty: 'rating',

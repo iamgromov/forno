@@ -34,6 +34,10 @@ const Card: FC<CardProps> = ({ id, imageUrl, title, types, sizes, price }) => {
       <div className='pizza-block'>
         <img className='pizza-block__image' src={imageUrl} alt='Pizza' />
         <h4 className='pizza-block__title'>{title}</h4>
+        <p className='pizza-block__description'>
+          Цыпленок, красный лук, сладкий перец, соус терияки, сыр моцарелла и фирменный соус
+          альфредо
+        </p>
         <div className='pizza-block__selector'>
           <ul>
             {types.map((typeId) => {

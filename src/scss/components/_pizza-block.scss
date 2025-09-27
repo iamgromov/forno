@@ -7,20 +7,16 @@
 
 .pizza-block {
   width: 280px;
-  text-align: center;
   margin-bottom: 65px;
-
-  // will-change: transform;
-  // transition: 400ms cubic-bezier(0.03, 0.98, 0.52, 0.99);
-  // transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
-
-  // padding: 4px;
-  // border: 1px solid $gray-line;
-  // border-radius: 24px;
+  padding: 8px;
+  border-radius: 28px;
+  background-color: #fff;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
 
   &__image {
     width: 260px;
-    // animation: spin 120s linear infinite;
     z-index: 0;
   }
 
@@ -37,7 +33,16 @@
     font-size: 20px;
     font-weight: 900;
     letter-spacing: 1%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    margin: 10px;
+    text-align: left;
   }
 
   &__selector {
@@ -85,9 +90,21 @@
     line-height: 27px;
     letter-spacing: 0.015em;
   }
-}
 
-// .pizza-block:hover {
-//   transform: scale(1.01);
-//   box-shadow: 8px 8px 16px $gray-line;
-// }
+  &:hover {
+    position: absolute;
+    transform: scale(1.1);
+    box-shadow: 0 0 16px 8px $gray-line;
+    z-index: 1;
+
+    .pizza-block__image {
+      animation: spin 120s linear infinite;
+    }
+
+    .pizza-block__description {
+      height: 100%;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

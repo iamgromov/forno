@@ -12,7 +12,9 @@ import { selectors } from '../../shared/store/selectors';
 
 const Home: FC = (): ReactElement => {
   const dispatch = useDispatch();
-  const { categoryId, currentPage, sortType, searchValue } = useSelector(selectors.filterSelector);
+  const { categoryId, limit, currentPage, sortType, searchValue } = useSelector(
+    selectors.filterSelector
+  );
   const { status, products } = useSelector(selectors.productsSelector);
   const navigate = useNavigate();
   const isSearch = useRef(false);
@@ -61,7 +63,7 @@ const Home: FC = (): ReactElement => {
     const search = searchValue ? `&search=${searchValue}` : '';
 
     if (!isSearch.current) {
-      dispatch(fetchProducts({ currentPage, category, sortBy, order, search }));
+      dispatch(fetchProducts({ currentPage, limit, category, sortBy, order, search }));
     }
 
     isSearch.current = false;
@@ -80,12 +82,12 @@ const Home: FC = (): ReactElement => {
         <>
           <div className='content__items'>
             {status === 'loading'
-              ? [...new Array(4)].map((_, index) => <CardSkeleton key={index} />)
+              ? [...new Array(limit)].map((_, index) => <CardSkeleton key={index} />)
               : products.map((product) => {
                   return (
-                    <Link to={`/product/${product.id}`} key={product.id}>
-                      <Card {...product} />
-                    </Link>
+                    // <Link to={`/product/${product.id}`} key={product.id}>
+                    <Card key={product.id} {...product} />
+                    // </Link>
                   );
                 })}
           </div>

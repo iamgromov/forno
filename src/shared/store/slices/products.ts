@@ -13,6 +13,7 @@ export interface ProductsState {
 
 export type FetchParams = {
   currentPage: number;
+  limit: number;
   category?: number;
   sortBy?: string;
   order?: string;
@@ -22,9 +23,9 @@ export type FetchParams = {
 export const fetchProducts = createAsyncThunk<PizzaItem[], FetchParams, { rejectValue: unknown }>(
   'products/fetchProducts',
   async (params) => {
-    const { currentPage, category, sortBy, order, search } = params;
+    const { currentPage, limit, category, sortBy, order, search } = params;
     const response: AxiosResponse<PizzaItem[]> = await axios.get(
-      `${API_URL}?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
+      `${API_URL}?page=${currentPage}&limit=${limit}&${category}&sortBy=${sortBy}&order=${order}${search}`
     );
 
     return response.data;

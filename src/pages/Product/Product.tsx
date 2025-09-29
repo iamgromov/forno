@@ -1,12 +1,13 @@
 import axios from 'axios';
 import { useEffect, useState, type FC, type ReactElement } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { API_URL } from '../../shared/api/config';
 import type { PizzaItem } from '../../shared/types/product.interface';
 
 const Product: FC = (): ReactElement => {
   const [product, setProduct] = useState<PizzaItem>();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchProduct() {
@@ -15,6 +16,7 @@ const Product: FC = (): ReactElement => {
         setProduct(data);
       } catch (error) {
         console.log(error);
+        navigate('/');
       }
     }
 

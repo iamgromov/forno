@@ -3,6 +3,7 @@ export { default as CartEmpty } from './CartEmpty/CartEmpty';
 export { default as CartItem } from './CartItem/CartItem';
 export { default as Categories } from './Categories/Categories';
 export { default as ErrorBlock } from './ErrorBlock/ErrorBlock';
+export { default as Footer } from './Footer/Footer';
 export { default as Header } from './Header/Header';
 export { default as NotFoundBlock } from './NotFoundBlock/NotFoundBlock';
 export { default as Pagination } from './Pagination/Pagination';

@@ -1,4 +1,4 @@
-export interface PizzaItem {
+export interface IProduct {
   id: string;
   imageUrl: string;
   title: string;
@@ -8,4 +8,11 @@ export interface PizzaItem {
   sizes: number[];
   category: number;
   rating: number;
+}
+
+export type Status = 'loading' | 'success' | 'error';
+
+export interface ProductsState {
+  products: IProduct[];
+  status: Status;
 }

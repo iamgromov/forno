@@ -1,13 +1,14 @@
 import { useState, type FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import type { CardProps } from '../../types/card.interface';
-import { addProduct, type CartItem } from '../../store/slices/cart';
-import { PlusIcon } from '../../../assets/icons';
-import { PRODUCT_SIZES, PRODUCT_TYPES } from '../../constants';
+import type { IProduct } from '../../types/product.interface';
+import type { ICartItem } from '../../types/cart.interface';
+import { addProduct } from '../../store/slices/cart';
 import { selectors } from '../../store/selectors';
+import { PRODUCT_SIZES, PRODUCT_TYPES } from '../../constants';
+import { PlusIcon } from '../../../assets/icons';
 
-const Card: FC<CardProps> = ({ id, imageUrl, title, description, types, sizes, price }) => {
+const Card: FC<IProduct> = ({ id, imageUrl, title, description, types, sizes, price }) => {
   const dispatch = useDispatch();
   const cartItem = useSelector(selectors.cartItemByIdSelector(id));
 
@@ -17,8 +18,9 @@ const Card: FC<CardProps> = ({ id, imageUrl, title, description, types, sizes, p
   const count = cartItem ? cartItem.count : 0;
 
   const onClickAdd = () => {
-    const item: CartItem = {
+    const item: ICartItem = {
       id,
+      count,
       price,
       imageUrl,
       title,

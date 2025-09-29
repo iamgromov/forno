@@ -5,7 +5,10 @@ import qs from 'qs';
 import { setCategoryId, setCurrentPage, setFilters } from '../../shared/store/slices/filter';
 import { Card, Categories, ErrorBlock, Pagination, Sort } from '../../shared/components';
 import { CardSkeleton } from '../../shared/ui';
-import { Link, useNavigate } from 'react-router-dom';
+import {
+  // Link,
+  useNavigate,
+} from 'react-router-dom';
 import { CATEGORIES, SORT_LIST } from '../../shared/constants';
 import { fetchProducts } from '../../shared/store/slices/products';
 import { selectors } from '../../shared/store/selectors';
@@ -17,15 +20,15 @@ const Home: FC = (): ReactElement => {
   );
   const { status, products } = useSelector(selectors.productsSelector);
   const navigate = useNavigate();
-  const isSearch = useRef(false);
-  const isMounted = useRef(false);
+  const isSearch = useRef<boolean>(false);
+  const isMounted = useRef<boolean>(false);
 
-  const onChangeCategory = (id) => {
+  const onChangeCategory = (id: number) => {
     dispatch(setCategoryId(id));
   };
 
-  const onChangePage = (number) => {
-    dispatch(setCurrentPage(number));
+  const onChangePage = (page: number) => {
+    dispatch(setCurrentPage(page));
   };
 
   useEffect(() => {
@@ -63,11 +66,12 @@ const Home: FC = (): ReactElement => {
     const search = searchValue ? `&search=${searchValue}` : '';
 
     if (!isSearch.current) {
+      // @ts-ignore
       dispatch(fetchProducts({ currentPage, limit, category, sortBy, order, search }));
     }
 
     isSearch.current = false;
-  }, [categoryId, sortType, searchValue, currentPage, dispatch]);
+  }, [categoryId, limit, sortType, searchValue, currentPage, dispatch]);
 
   return (
     <>

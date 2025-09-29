@@ -1,11 +1,19 @@
 import { type FC, type ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
+import type { ICartItem } from '../../types/cart.interface';
 import { addProduct, removeProduct, removeAllSimilarProducts } from '../../store/slices/cart';
-import { AddIcon, RemoveIcon } from '../../../assets/icons';
-import ClearIcon from '../../../assets/icons/ClearIcon';
+import { AddIcon, ClearIcon, RemoveIcon } from '../../../assets/icons';
 
-const CartItem: FC = ({ id, count, price, imageUrl, title, type, size }): ReactElement => {
+const CartItem: FC<ICartItem> = ({
+  id,
+  count,
+  price,
+  imageUrl,
+  title,
+  type,
+  size,
+}): ReactElement => {
   const dispatch = useDispatch();
 
   const onClickAdd = () => {

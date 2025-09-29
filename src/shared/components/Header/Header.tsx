@@ -2,9 +2,9 @@ import type { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import { CartIcon, Logo } from '../../../assets/icons';
 import { Search } from '../';
 import { selectors } from '../../store/selectors';
+import { CartIcon, Logo } from '../../../assets/icons';
 
 const Header: FC = () => {
   const { items, totalPrice } = useSelector(selectors.cartSelector);
@@ -19,7 +19,7 @@ const Header: FC = () => {
           <Logo />
         </Link>
 
-        {location.pathname == '/cart' ? null : <Search />}
+        {location.pathname !== '/cart' && <Search />}
 
         <div className='header__cart'>
           <Link to='/cart' className='button button--cart'>

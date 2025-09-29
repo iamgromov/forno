@@ -1,10 +1,19 @@
-export const CATEGORIES = ['Все', 'Мясные', 'Вегетарианские', 'Гриль', 'Острые', 'Закрытые'];
+import type { SortItem } from '../types/filter.interface';
 
-export const PRODUCT_SIZES = [26, 30, 40];
+export const CATEGORIES: string[] = [
+  'Все',
+  'Мясные',
+  'Вегетарианские',
+  'Гриль',
+  'Острые',
+  'Закрытые',
+];
 
-export const PRODUCT_TYPES = ['тонкое', 'традиционное'];
+export const PRODUCT_SIZES: number[] = [26, 30, 40];
 
-export const SORT_LIST = [
+export const PRODUCT_TYPES: string[] = ['тонкое', 'традиционное'];
+
+export const SORT_LIST: SortItem[] = [
   { title: 'популярности-', sortProperty: 'rating' },
   { title: 'популярности+', sortProperty: '-rating' },
   { title: 'цене-', sortProperty: 'price' },

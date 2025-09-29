@@ -7,9 +7,11 @@ const MainLayout: FC = (): ReactElement => {
   return (
     <div className='wrapper'>
       <Header />
+
       <div className='content'>
         <Outlet />
       </div>
+
       <Footer />
     </div>
   );

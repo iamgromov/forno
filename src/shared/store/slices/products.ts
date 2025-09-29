@@ -1,30 +1,15 @@
 import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { PizzaItem } from '../../types/product.interface';
-import type { AxiosResponse } from 'axios';
-import axios from 'axios';
+import axios, { type AxiosResponse } from 'axios';
+
 import { API_URL } from '../../api/config';
+import type { IProduct, ProductsState } from '../../types/product.interface';
+import type { FetchParams } from '../../types/api.interface';
 
-export type Status = 'loading' | 'success' | 'error';
-
-export interface ProductsState {
-  products: PizzaItem[];
-  status: Status;
-}
-
-export type FetchParams = {
-  currentPage: number;
-  limit: number;
-  category?: number;
-  sortBy?: string;
-  order?: string;
-  search?: string;
-};
-
-export const fetchProducts = createAsyncThunk<PizzaItem[], FetchParams, { rejectValue: unknown }>(
+export const fetchProducts = createAsyncThunk<IProduct[], FetchParams, { rejectValue: unknown }>(
   'products/fetchProducts',
   async (params) => {
     const { currentPage, limit, category, sortBy, order, search } = params;
-    const response: AxiosResponse<PizzaItem[]> = await axios.get(
+    const response: AxiosResponse<IProduct[]> = await axios.get(
       `${API_URL}?page=${currentPage}&limit=${limit}&${category}&sortBy=${sortBy}&order=${order}${search}`
     );
 
@@ -41,7 +26,7 @@ export const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    setProducts: (state, action: PayloadAction<PizzaItem[]>) => {
+    setProducts: (state, action: PayloadAction<IProduct[]>) => {
       state.products = action.payload;
     },
   },

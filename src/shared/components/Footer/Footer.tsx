@@ -5,6 +5,7 @@ const Footer: FC = (): ReactElement => {
     <div className='footer'>
       <div className='container'>
         <p>© {new Date().getFullYear()}</p>
+
         <a href='https://github.com/iamgromov/forno' rel='noreferrer' target='_blank'>
           GitHub Repo
         </a>

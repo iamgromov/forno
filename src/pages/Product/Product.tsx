@@ -1,11 +1,12 @@
-import axios from 'axios';
 import { useEffect, useState, type FC, type ReactElement } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
+
 import { API_URL } from '../../shared/api/config';
-import type { PizzaItem } from '../../shared/types/product.interface';
+import type { IProduct } from '../../shared/types/product.interface';
 
 const Product: FC = (): ReactElement => {
-  const [product, setProduct] = useState<PizzaItem>();
+  const [product, setProduct] = useState<IProduct>();
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ const Product: FC = (): ReactElement => {
     }
 
     fetchProduct();
-  }, [id]);
+  }, [id, navigate]);
 
   if (!product) {
     return <h2>Загрузка..</h2>;
@@ -37,7 +38,7 @@ const Product: FC = (): ReactElement => {
           <h4>{product.price}</h4>
         </>
       ) : (
-        <h2>Загрузка..</h2>
+        <h2>Загрузка..</h2> // TODO: Собрать скелетон для страницы продукта
       )}
     </div>
   );

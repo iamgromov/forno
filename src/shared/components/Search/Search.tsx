@@ -1,12 +1,4 @@
-import {
-  useCallback,
-  useRef,
-  useState,
-  type ChangeEvent,
-  type FC,
-  type ReactElement,
-  type RefObject,
-} from 'react';
+import { useCallback, useRef, useState, type ChangeEvent, type FC, type ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 import debounce from 'lodash.debounce';
 
@@ -18,13 +10,13 @@ const Search: FC = (): ReactElement => {
   const dispatch = useDispatch();
   const [value, setValue] = useState<string>('');
 
-  const inputRef: RefObject<HTMLInputElement> = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const onClickClear = (): void => {
     setValue('');
     dispatch(setSearchValue(''));
 
-    inputRef?.current.focus();
+    inputRef?.current?.focus();
   };
 
   const updateSearchValue = useCallback(

@@ -1,8 +1,9 @@
-import { type FC } from 'react';
+import { type FC, type ReactElement } from 'react';
 
+import type { CategoriesProps } from '../../types/categories.interface';
 import { CATEGORIES } from '../../constants';
 
-const Categories: FC = ({ categoryId, onChangeCategory }) => {
+const Categories: FC<CategoriesProps> = ({ categoryId, onChangeCategory }): ReactElement => {
   return (
     <div className='categories'>
       <ul>

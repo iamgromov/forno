@@ -1,4 +1,6 @@
 import type { FC } from 'react';
+import { Link } from 'react-router-dom';
+
 import styles from './NotFoundBlock.module.scss';
 
 const NotFoundBlock: FC = () => {
@@ -12,6 +14,10 @@ const NotFoundBlock: FC = () => {
       <p className={styles.description}>
         К сожалению данная страница отсутствует в нашем интернет-магазине
       </p>
+      <br />
+      <Link to='/' className='button button--black'>
+        <span>На главную</span>
+      </Link>
     </div>
   );
 };

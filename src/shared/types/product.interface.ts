@@ -2,9 +2,10 @@ export interface PizzaItem {
   id: string;
   imageUrl: string;
   title: string;
+  description: string;
+  price: number;
   types: number[];
   sizes: number[];
-  price: number;
   category: number;
   rating: number;
 }

@@ -7,7 +7,7 @@ import { PlusIcon } from '../../../assets/icons';
 import { PRODUCT_SIZES, PRODUCT_TYPES } from '../../constants';
 import { selectors } from '../../store/selectors';
 
-const Card: FC<CardProps> = ({ id, imageUrl, title, types, sizes, price }) => {
+const Card: FC<CardProps> = ({ id, imageUrl, title, description, types, sizes, price }) => {
   const dispatch = useDispatch();
   const cartItem = useSelector(selectors.cartItemByIdSelector(id));
 
@@ -34,10 +34,7 @@ const Card: FC<CardProps> = ({ id, imageUrl, title, types, sizes, price }) => {
       <div className='pizza-block'>
         <img className='pizza-block__image' src={imageUrl} alt='Pizza' />
         <h4 className='pizza-block__title'>{title}</h4>
-        <p className='pizza-block__description'>
-          Цыпленок, красный лук, сладкий перец, соус терияки, сыр моцарелла и фирменный соус
-          альфредо
-        </p>
+        <p className='pizza-block__description'>{description}</p>
         <div className='pizza-block__selector'>
           <ul>
             {types.map((typeId) => {

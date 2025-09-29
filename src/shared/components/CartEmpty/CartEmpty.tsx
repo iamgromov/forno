@@ -1,7 +1,7 @@
 import { type FC, type ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 
 import emptyCart from '../../../assets/img/empty-cart.png';
-import { Link } from 'react-router-dom';
 
 const CartEmpty: FC = (): ReactElement => {
   return (

@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import { useEffect, useRef, type FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -9,8 +9,19 @@ import { CartIcon, Logo } from '../../../assets/icons';
 const Header: FC = () => {
   const { items, totalPrice } = useSelector(selectors.cartSelector);
   const location = useLocation();
+  const isMounted = useRef(false);
 
   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+
+  useEffect(() => {
+    if (isMounted.current) {
+      const json = JSON.stringify(items);
+
+      localStorage.setItem('cart', json);
+      console.log(json);
+    }
+    isMounted.current = true;
+  }, [items]);
 
   return (
     <div className='header'>

@@ -1,14 +1,13 @@
-import { useEffect, useRef, useState, type FC } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { memo, useEffect, useRef, useState, type FC } from 'react';
+import { useDispatch } from 'react-redux';
 
 import type { SortType } from '../../types/filter.interface';
+import type { SortProps } from '../../types/sort.interface';
 import { setSortType } from '../../store/slices/filter';
 import { SORT_LIST } from '../../constants/';
-import { selectors } from '../../store/selectors';
 
-const Sort: FC = () => {
+const Sort: FC<SortProps> = memo(({ sortType }) => {
   const dispatch = useDispatch();
-  const sortType = useSelector(selectors.sortTypeSelector);
   const sortRef = useRef<HTMLDivElement>(null);
 
   const [visible, setVisible] = useState(false);
@@ -71,6 +70,6 @@ const Sort: FC = () => {
       )}
     </div>
   );
-};
+});
 
 export default Sort;

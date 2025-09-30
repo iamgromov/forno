@@ -1,9 +1,9 @@
-import { type FC, type ReactElement } from 'react';
+import { memo, type FC, type ReactElement } from 'react';
 
 import type { CategoriesProps } from '../../types/categories.interface';
 import { CATEGORIES } from '../../constants';
 
-const Categories: FC<CategoriesProps> = ({ categoryId, onChangeCategory }): ReactElement => {
+const Categories: FC<CategoriesProps> = memo(({ categoryId, onChangeCategory }): ReactElement => {
   return (
     <div className='categories'>
       <ul>
@@ -21,6 +21,6 @@ const Categories: FC<CategoriesProps> = ({ categoryId, onChangeCategory }): Reac
       </ul>
     </div>
   );
-};
+});
 
 export default Categories;

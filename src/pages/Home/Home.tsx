@@ -1,4 +1,4 @@
-import { useEffect, useRef, type FC, type ReactElement } from 'react';
+import { useCallback, useEffect, useRef, type FC, type ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import qs from 'qs';
@@ -22,9 +22,12 @@ const Home: FC = (): ReactElement => {
   const isSearch = useRef<boolean>(false);
   const isMounted = useRef<boolean>(false);
 
-  const onChangeCategory = (id: number) => {
-    dispatch(setCategoryId(id));
-  };
+  const onChangeCategory = useCallback(
+    (id: number) => {
+      dispatch(setCategoryId(id));
+    },
+    [dispatch]
+  );
 
   const onChangePage = (page: number) => {
     dispatch(setCurrentPage(page));
@@ -75,7 +78,7 @@ const Home: FC = (): ReactElement => {
     <>
       <div className='content__top'>
         <Categories categoryId={categoryId} onChangeCategory={onChangeCategory} />
-        <Sort />
+        <Sort sortType={sortType} />
       </div>
       <h2 className='content__title'>{CATEGORIES[categoryId]} пиццы</h2>
       {status === STATUS.ERROR ? (

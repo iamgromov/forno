@@ -19,12 +19,13 @@ const Search: FC = (): ReactElement => {
     inputRef?.current?.focus();
   };
 
-  const updateSearchValue = useCallback(
+  const debounceRef = useRef(
     debounce((str: string) => {
       dispatch(setSearchValue(str));
-    }, 400),
-    []
+    }, 400)
   );
+
+  const updateSearchValue = useCallback((str: string) => debounceRef.current(str), []);
 
   const onChangeInput = (event: ChangeEvent<HTMLInputElement>): void => {
     setValue(event.target.value);

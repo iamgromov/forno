@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import type { SortItem } from '../../types/filter.interface';
+import type { SortType } from '../../types/filter.interface';
 import { setSortType } from '../../store/slices/filter';
 import { SORT_LIST } from '../../constants/';
 import { selectors } from '../../store/selectors';
@@ -13,16 +13,16 @@ const Sort: FC = () => {
 
   const [visible, setVisible] = useState(false);
 
-  const handleClickSortType = (obj: SortItem) => {
+  const handleClickSortType = (obj: SortType) => {
     dispatch(setSortType(obj));
     setVisible(false);
   };
 
   useEffect(() => {
-    const handleClickOutside = (event: any) => {
+    const handleClickOutside = (event: MouseEvent) => {
       const path = event.composedPath();
 
-      if (!path.includes(sortRef.current)) {
+      if (sortRef.current && !path.includes(sortRef.current)) {
         setVisible(false);
       }
     };

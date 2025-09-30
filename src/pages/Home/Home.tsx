@@ -1,20 +1,19 @@
 import { useEffect, useRef, type FC, type ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import qs from 'qs';
 
+import { selectors } from '../../shared/store/selectors';
 import { setCategoryId, setCurrentPage, setFilters } from '../../shared/store/slices/filter';
+import { fetchProducts } from '../../shared/store/slices/products';
 import { Card, Categories, ErrorBlock, Pagination, Sort } from '../../shared/components';
 import { CardSkeleton } from '../../shared/ui';
-import {
-  // Link,
-  useNavigate,
-} from 'react-router-dom';
 import { CATEGORIES, SORT_LIST } from '../../shared/constants';
-import { fetchProducts } from '../../shared/store/slices/products';
-import { selectors } from '../../shared/store/selectors';
+import { STATUS } from '../../shared/types/product.interface';
+import type { AppDispatch } from '../../shared/store/store';
 
 const Home: FC = (): ReactElement => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { categoryId, limit, currentPage, sortType, searchValue } = useSelector(
     selectors.filterSelector
   );
@@ -55,7 +54,7 @@ const Home: FC = (): ReactElement => {
 
       isSearch.current = true;
     }
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -66,7 +65,6 @@ const Home: FC = (): ReactElement => {
     const search = searchValue ? `&search=${searchValue}` : '';
 
     if (!isSearch.current) {
-      // @ts-ignore
       dispatch(fetchProducts({ currentPage, limit, category, sortBy, order, search }));
     }
 
@@ -80,19 +78,15 @@ const Home: FC = (): ReactElement => {
         <Sort />
       </div>
       <h2 className='content__title'>{CATEGORIES[categoryId]} пиццы</h2>
-      {status === 'error' ? (
+      {status === STATUS.ERROR ? (
         <ErrorBlock />
       ) : (
         <>
           <div className='content__items'>
-            {status === 'loading'
+            {status === STATUS.LOADING
               ? [...new Array(limit)].map((_, index) => <CardSkeleton key={index} />)
               : products.map((product) => {
-                  return (
-                    // <Link to={`/product/${product.id}`} key={product.id}>
-                    <Card key={product.id} {...product} />
-                    // </Link>
-                  );
+                  return <Card key={product.id} {...product} />;
                 })}
           </div>
           <Pagination currentPage={currentPage} onChangePage={onChangePage} />

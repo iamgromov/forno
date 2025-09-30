@@ -53,40 +53,6 @@
     }
   }
 
-  &--disable {
-    background-color: #fff;
-    border-color: rgb(220.5, 220.5, 220.5);
-    &,
-    span {
-      color: rgb(220.5, 220.5, 220.5);
-    }
-
-    svg {
-      path {
-        fill: rgb(220.5, 220.5, 220.5);
-      }
-    }
-
-    &:hover {
-      background-color: #fff;
-
-      &,
-      span {
-        color: rgb(220.5, 220.5, 220.5);
-      }
-
-      svg {
-        path {
-          fill: rgb(220.5, 220.5, 220.5);
-        }
-      }
-    }
-
-    &:active {
-      background-color: darken(#fff, 5%);
-    }
-  }
-
   &--outline {
     background-color: #fff;
     border-color: $orange;
@@ -118,6 +84,36 @@
 
     &:active {
       background-color: darken($orange, 8%);
+    }
+  }
+
+  &:disabled {
+    background-color: #fff;
+    border-color: rgb(220.5, 220.5, 220.5);
+    &,
+    span {
+      color: rgb(220.5, 220.5, 220.5);
+    }
+
+    svg {
+      path {
+        fill: rgb(220.5, 220.5, 220.5);
+      }
+    }
+
+    &:hover {
+      background-color: #fff;
+
+      &,
+      span {
+        color: rgb(220.5, 220.5, 220.5);
+      }
+
+      svg {
+        path {
+          fill: rgb(220.5, 220.5, 220.5);
+        }
+      }
     }
   }
 

@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import type { FilterState, SortItem } from '../../types/filter.interface';
+import type { FilterState, SortType } from '../../types/filter.interface';
 
 const initialState: FilterState = {
   categoryId: 0,
@@ -20,7 +20,7 @@ export const filterSlice = createSlice({
     setCategoryId: (state, action: PayloadAction<number>) => {
       state.categoryId = action.payload;
     },
-    setSortType: (state, action: PayloadAction<SortItem>) => {
+    setSortType: (state, action: PayloadAction<SortType>) => {
       state.sortType = action.payload;
     },
     setCurrentPage: (state, action: PayloadAction<number>) => {

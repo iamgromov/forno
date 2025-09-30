@@ -60,21 +60,20 @@ const CartItem: FC<ICartItem> = ({
         </p>
       </div>
       <div className='cart__item-count'>
-        <div
-          className={`button ${
-            count == 1 ? 'button--disable' : 'button--outline'
-          } button--circle cart__item-count-minus`}
+        <button
+          className='button button--outline button--circle cart__item-count-minus'
+          disabled={count == 1}
           onClick={onClickRemove}
         >
           <RemoveIcon />
-        </div>
+        </button>
         <b>{count}</b>
-        <div
+        <button
           className='button button--outline button--circle cart__item-count-plus'
           onClick={onClickAdd}
         >
           <AddIcon />
-        </div>
+        </button>
       </div>
       <div className='cart__item-price'>
         <b>{price * count} ₽</b>

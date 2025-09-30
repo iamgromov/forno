@@ -1,13 +1,10 @@
 import type { IProduct } from './product.interface';
 
-export type ICartItem = Omit<
-  IProduct,
-  'description' | 'types' | 'sizes' | 'category' | 'rating'
-> & {
+export interface ICartItem extends Pick<IProduct, 'id' | 'imageUrl' | 'title' | 'price'> {
   count: number;
   type: string;
   size: number;
-};
+}
 
 export interface CartState {
   totalPrice: number;

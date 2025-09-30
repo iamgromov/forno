@@ -10,9 +10,15 @@ export interface IProduct {
   rating: number;
 }
 
-export type Status = 'loading' | 'success' | 'error';
+type StatusType = 'LOADING' | 'SUCCESS' | 'ERROR';
+
+export const STATUS: Record<StatusType, StatusType> = {
+  LOADING: 'LOADING',
+  SUCCESS: 'SUCCESS',
+  ERROR: 'ERROR',
+};
 
 export interface ProductsState {
   products: IProduct[];
-  status: Status;
+  status: keyof typeof STATUS;
 }

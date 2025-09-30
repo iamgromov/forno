@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import qs from 'qs';
 
+import type { AppDispatch } from '../../shared/store/store';
+import { STATUS } from '../../shared/types/product.interface';
+import { CATEGORIES, SORT_LIST } from '../../shared/constants';
 import { selectors } from '../../shared/store/selectors';
 import { setCategoryId, setCurrentPage, setFilters } from '../../shared/store/slices/filter';
 import { fetchProducts } from '../../shared/store/slices/products';
 import { Card, Categories, ErrorBlock, Pagination, Sort } from '../../shared/components';
 import { CardSkeleton } from '../../shared/ui';
-import { CATEGORIES, SORT_LIST } from '../../shared/constants';
-import { STATUS } from '../../shared/types/product.interface';
-import type { AppDispatch } from '../../shared/store/store';
 
 const Home: FC = (): ReactElement => {
   const dispatch = useDispatch<AppDispatch>();

@@ -10,13 +10,13 @@ export interface IProduct {
   rating: number;
 }
 
-type StatusType = 'LOADING' | 'SUCCESS' | 'ERROR';
-
-export const STATUS: Record<StatusType, StatusType> = {
+export const STATUS = {
   LOADING: 'LOADING',
   SUCCESS: 'SUCCESS',
   ERROR: 'ERROR',
-};
+} as const;
+
+export type StatusType = keyof typeof STATUS;
 
 export interface ProductsState {
   products: IProduct[];

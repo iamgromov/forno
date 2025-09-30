@@ -1,9 +1,10 @@
 import { useEffect, useState, type FC, type ReactElement } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import { API_URL } from '../../shared/api/config';
 import type { IProduct } from '../../shared/types/product.interface';
+import { Loader } from '../../shared/ui';
 
 const Product: FC = (): ReactElement => {
   const [product, setProduct] = useState<IProduct>();
@@ -25,21 +26,18 @@ const Product: FC = (): ReactElement => {
   }, [id, navigate]);
 
   if (!product) {
-    return <h2>Загрузка..</h2>;
+    return <Loader />;
   }
 
   return (
     <div className='container'>
-      {product ? (
-        <>
-          <img src={product.imageUrl} alt='' />
-          <h2>{product.title}</h2>
-          <p>Description</p>
-          <h4>{product.price}</h4>
-        </>
-      ) : (
-        <h2>Загрузка..</h2> // TODO: Собрать скелетон для страницы продукта
-      )}
+      <Link to='/' className='button button--outline'>
+        <span>Вернуться назад</span>
+      </Link>
+      <img src={product.imageUrl} alt='' />
+      <h2>{product.title}</h2>
+      <p>{product.description}</p>
+      <h4>{product.price} ₽</h4>
     </div>
   );
 };

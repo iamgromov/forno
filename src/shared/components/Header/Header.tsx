@@ -18,7 +18,6 @@ const Header: FC = () => {
       const json = JSON.stringify(items);
 
       localStorage.setItem('cart', json);
-      console.log(json);
     }
     isMounted.current = true;
   }, [items]);

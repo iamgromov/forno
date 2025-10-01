@@ -1,6 +1,20 @@
 # Forno
 
-This is a React + Redux Toolkit + TS + Vite project using [mockapi](https://mockapi.io/)
+This is React SPA project using [mockapi](https://mockapi.io/)
+
+## Technologies
+
+- **ReactJS 19**
+- **TypeScript**
+- **Vite**
+- **Redux Toolkit**
+- **React Router v6**
+- **Axios**
+- **CSS-Modules/SCSS**
+- **React Content Loader**
+- **React Pagination**
+- **Lodash.Debounce**
+- **Code Splitting (React Loadable, useWhyDidYouUpdate)**
 
 ## Setup
 
@@ -25,9 +39,11 @@ To work with the mockapi, you need to obtain an API key:
 
 2. Create a `.env.local` file in the root of your project and add:
 
-    `VITE_API_URL_KEY=your_api_key_here`
+   `VITE_API_URL_KEY=your_api_key_here`
 
 3. Use the key in your code via `import.meta.env.VITE_API_URL_KEY`
+
+4. Also you need to put data from [mock.json](https://github.com/iamgromov/forno/blob/master/src/shared/api/mock.json) to resource data of your API endpoint
 
 ## Get Started
 

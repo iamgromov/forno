@@ -1,8 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-const isVercel = !!process.env.VERCEL;
-
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
@@ -12,5 +10,5 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  base: isVercel ? '/' : '/forno/',
+  base: '/forno/',
 });

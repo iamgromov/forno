@@ -1,3 +1,9 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/forno/index.html" }]
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "assets/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }

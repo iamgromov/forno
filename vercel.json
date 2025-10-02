@@ -2,8 +2,8 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "/((?!assets|js|css|favicon\\.ico).*)",
-      "destination": "/index.html"
+      "source": "/forno/(.*)",
+      "destination": "/forno/index.html"
     }
   ]
 }

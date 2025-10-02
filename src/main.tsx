@@ -6,8 +6,14 @@ import { Provider } from 'react-redux';
 import { store } from './shared/store/store';
 import App from './app/App';
 
-const isVercel = !!process.env.VERCEL;
-const basename = isVercel ? '/' : '/forno/';
+const basename = (() => {
+  if (window.location.hostname.includes('vercel')) {
+    // Vercel
+    return '/';
+  }
+
+  return '/forno';
+})();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

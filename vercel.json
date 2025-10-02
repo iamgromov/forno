@@ -2,7 +2,7 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "/forno/(.*)",
+      "source": "/forno/((?!assets|js|css|favicon\\.ico).*)",
       "destination": "/forno/index.html"
     }
   ]

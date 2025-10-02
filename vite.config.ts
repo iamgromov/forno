@@ -10,5 +10,5 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  base: '/forno',
+  base: process.env.VITE_BASE_PATH || '/forno',
 });

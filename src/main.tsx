@@ -6,10 +6,13 @@ import { Provider } from 'react-redux';
 import { store } from './shared/store/store';
 import App from './app/App';
 
+const isVercel = !!process.env.VERCEL;
+const basename = isVercel ? '/' : '/forno/';
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <Router basename='/forno' future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <Router basename={basename} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <App />
       </Router>
     </Provider>

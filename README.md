@@ -1,4 +1,4 @@
-# Forno
+# <img src="public/pizza.png" width="24" alt="pizza"> Forno
 
 This is React SPA project using [mockapi](https://mockapi.io/)
 

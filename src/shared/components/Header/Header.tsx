@@ -1,12 +1,12 @@
-import { useEffect, useRef, type FC } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useRef, type FC, type ReactElement } from 'react';
 import { useSelector } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
 
 import { Search } from '../';
-import { selectors } from '../../store/selectors';
 import { CartIcon, Logo } from '../../../assets/icons';
+import { selectors } from '../../store';
 
-const Header: FC = () => {
+export const Header: FC = (): ReactElement => {
   const { items, totalPrice } = useSelector(selectors.cartSelector);
   const location = useLocation();
   const isMounted = useRef(false);
@@ -47,5 +47,3 @@ const Header: FC = () => {
     </div>
   );
 };
-
-export default Header;

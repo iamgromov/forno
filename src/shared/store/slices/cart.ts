@@ -1,8 +1,9 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import type { CartState, ICartItem } from '../../types/cart.interface';
-import { getCardFromLS } from '../../utils/getCartFromLS';
-import { calcTotalPrice } from '../../utils/calcTotalPrice';
+import { calcTotalPrice, getCardFromLS } from '../../utils';
+import { SLICE_NAMES } from '../types';
+
+import type { CartState, ICartItem } from '../../types';
 
 const { totalPrice, items } = getCardFromLS();
 
@@ -12,7 +13,7 @@ const initialState: CartState = {
 };
 
 export const cartSlice = createSlice({
-  name: 'cart',
+  name: SLICE_NAMES.CART,
   initialState,
   reducers: {
     addProduct: (state, action: PayloadAction<ICartItem>) => {

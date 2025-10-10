@@ -1,12 +1,12 @@
-import { memo, useEffect, useRef, useState, type FC } from 'react';
+import { memo, useEffect, useRef, useState, type FC, type ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
-import type { SortType } from '../../types/filter.interface';
-import type { SortProps } from '../../types/sort.interface';
-import { setSortType } from '../../store/slices/filter';
 import { SORT_LIST } from '../../constants/';
+import { setSortType } from '../../store';
 
-const Sort: FC<SortProps> = memo(({ sortType }) => {
+import type { SortType, SortProps } from '../../types';
+
+export const Sort: FC<SortProps> = memo(({ sortType }): ReactElement => {
   const dispatch = useDispatch();
   const sortRef = useRef<HTMLDivElement>(null);
 
@@ -71,5 +71,3 @@ const Sort: FC<SortProps> = memo(({ sortType }) => {
     </div>
   );
 });
-
-export default Sort;

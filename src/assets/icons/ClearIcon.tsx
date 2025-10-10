@@ -1,7 +1,8 @@
 import { type FC } from 'react';
-import type { Icon } from '../../shared/types/icon.interface';
 
-const ClearIcon: FC<Icon> = ({ ...props }) => {
+import type { Icon } from '../../shared/types';
+
+export const ClearIcon: FC<Icon> = ({ ...props }) => {
   return (
     <svg
       width='10'
@@ -22,5 +23,3 @@ const ClearIcon: FC<Icon> = ({ ...props }) => {
     </svg>
   );
 };
-
-export default ClearIcon;

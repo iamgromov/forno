@@ -1,6 +1,6 @@
 import { type FC, type ReactElement } from 'react';
 
-const Footer: FC = (): ReactElement => {
+export const Footer: FC = (): ReactElement => {
   return (
     <div className='footer'>
       <div className='container'>
@@ -13,5 +13,3 @@ const Footer: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default Footer;

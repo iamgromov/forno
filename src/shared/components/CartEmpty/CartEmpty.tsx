@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import emptyCart from '../../../assets/img/empty-cart.png';
 
-const CartEmpty: FC = (): ReactElement => {
+export const CartEmpty: FC = (): ReactElement => {
   return (
     <div className='cart cart--empty'>
       <h2>
@@ -21,5 +21,3 @@ const CartEmpty: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default CartEmpty;

@@ -1,12 +1,14 @@
 import { useEffect, useState, type FC, type ReactElement } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+
 import axios from 'axios';
 
 import { API_URL } from '../../shared/api/config';
-import type { IProduct } from '../../shared/types/product.interface';
 import { Loader } from '../../shared/ui';
 
-const Product: FC = (): ReactElement => {
+import type { IProduct } from '../../shared/types';
+
+export const Product: FC = (): ReactElement => {
   const [product, setProduct] = useState<IProduct>();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -41,5 +43,3 @@ const Product: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default Product;

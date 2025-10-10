@@ -1,11 +1,12 @@
 import { type FC, type ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
-import type { ICartItem } from '../../types/cart.interface';
-import { addProduct, removeProduct, removeAllSimilarProducts } from '../../store/slices/cart';
 import { AddIcon, ClearIcon, RemoveIcon } from '../../../assets/icons';
+import { addProduct, removeProduct, removeAllSimilarProducts } from '../../store';
 
-const CartItem: FC<ICartItem> = ({
+import type { ICartItem } from '../../types';
+
+export const CartItem: FC<ICartItem> = ({
   id,
   count,
   price,
@@ -86,5 +87,3 @@ const CartItem: FC<ICartItem> = ({
     </div>
   );
 };
-
-export default CartItem;

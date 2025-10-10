@@ -1,7 +1,7 @@
 import type { FC, ReactElement } from 'react';
 import ContentLoader from 'react-content-loader';
 
-const CardSkeleton: FC = (): ReactElement => (
+export const CardSkeleton: FC = (): ReactElement => (
   <ContentLoader
     className='pizza-block'
     speed={2}
@@ -18,5 +18,3 @@ const CardSkeleton: FC = (): ReactElement => (
     <rect x='130' y='420' rx='16' ry='16' width='150' height='40' />
   </ContentLoader>
 );
-
-export default CardSkeleton;

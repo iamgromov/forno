@@ -1,3 +1,3 @@
-export { default as CardSkeleton } from './CardSkeleton/CardSkeleton';
-export { default as LazyLoader } from './LazyLoader/LazyLoader';
-export { default as Loader } from './Loader/Loader';
+export * from './CardSkeleton/CardSkeleton';
+export * from './LazyLoader/LazyLoader';
+export * from './Loader/Loader';

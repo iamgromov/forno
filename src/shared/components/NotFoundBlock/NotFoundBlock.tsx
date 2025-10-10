@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './NotFoundBlock.module.scss';
 
-const NotFoundBlock: FC = (): ReactElement => {
+export const NotFoundBlock: FC = (): ReactElement => {
   return (
     <div className={styles.root}>
       <h1>
@@ -21,5 +21,3 @@ const NotFoundBlock: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default NotFoundBlock;

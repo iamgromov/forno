@@ -1,15 +1,22 @@
-import { useState, type FC } from 'react';
+import { useState, type FC, type ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import type { IProduct } from '../../types/product.interface';
-import type { ICartItem } from '../../types/cart.interface';
-import { addProduct } from '../../store/slices/cart';
-import { selectors } from '../../store/selectors';
-import { PRODUCT_SIZES, PRODUCT_TYPES } from '../../constants';
 import { PlusIcon } from '../../../assets/icons';
+import { PRODUCT_SIZES, PRODUCT_TYPES } from '../../constants';
+import { selectors, addProduct } from '../../store';
 
-const Card: FC<IProduct> = ({ id, imageUrl, title, description, types, sizes, price }) => {
+import type { ICartItem, IProduct } from '../../types';
+
+export const Card: FC<IProduct> = ({
+  id,
+  imageUrl,
+  title,
+  description,
+  types,
+  sizes,
+  price,
+}): ReactElement => {
   const dispatch = useDispatch();
   const cartItem = useSelector(selectors.cartItemByIdSelector(id));
 
@@ -80,5 +87,3 @@ const Card: FC<IProduct> = ({ id, imageUrl, title, description, types, sizes, pr
     </div>
   );
 };
-
-export default Card;

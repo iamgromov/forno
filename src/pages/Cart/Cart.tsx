@@ -1,13 +1,12 @@
 import type { FC, ReactElement } from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { BackIcon, BasketIcon, CartIcon } from '../../assets/icons';
 import { CartEmpty, CartItem } from '../../shared/components';
-import { clearCart } from '../../shared/store/slices/cart';
-import { selectors } from '../../shared/store/selectors';
+import { selectors, clearCart } from '../../shared/store';
 
-const Cart: FC = (): ReactElement => {
+export const Cart: FC = (): ReactElement => {
   const dispatch = useDispatch();
   const { items, totalPrice } = useSelector(selectors.cartSelector);
 
@@ -64,5 +63,3 @@ const Cart: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default Cart;

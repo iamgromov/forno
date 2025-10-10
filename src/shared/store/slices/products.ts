@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import axios, { type AxiosResponse } from 'axios';
 
-import { STATUS, type IProduct, type ProductsState } from '../../types/product.interface';
-import type { FetchParams } from '../../types/api.interface';
 import { API_URL } from '../../api/config';
+import { STATUS, type IProduct, type ProductsState, type FetchParams } from '../../types';
+import { ACTION_NAMES, SLICE_NAMES } from '../types';
 
 export const fetchProducts = createAsyncThunk<IProduct[], FetchParams, { rejectValue: unknown }>(
-  'products/fetchProducts',
+  ACTION_NAMES.FETCH_PRODUCTS,
   async (params) => {
     const { currentPage, limit, category, sortBy, order, search } = params;
     const response: AxiosResponse<IProduct[]> = await axios.get(
@@ -23,7 +23,7 @@ const initialState: ProductsState = {
 };
 
 export const productsSlice = createSlice({
-  name: 'products',
+  name: SLICE_NAMES.PRODUCTS,
   initialState,
   reducers: {
     setProducts: (state, action: PayloadAction<IProduct[]>) => {

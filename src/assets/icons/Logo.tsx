@@ -1,7 +1,8 @@
 import { type FC, type ReactElement } from 'react';
-import type { Icon } from '../../shared/types/icon.interface';
 
-const Logo: FC<Icon> = ({ ...props }): ReactElement => {
+import type { Icon } from '../../shared/types';
+
+export const Logo: FC<Icon> = ({ ...props }): ReactElement => {
   return (
     <svg
       width='200'
@@ -20,5 +21,3 @@ const Logo: FC<Icon> = ({ ...props }): ReactElement => {
     </svg>
   );
 };
-
-export default Logo;

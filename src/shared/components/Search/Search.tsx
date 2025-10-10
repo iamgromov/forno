@@ -1,12 +1,12 @@
 import { useCallback, useRef, useState, type ChangeEvent, type FC, type ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
+
 import debounce from 'lodash.debounce';
 
-import { setSearchValue } from '../../store/slices/filter';
-
 import styles from './Search.module.scss';
+import { setSearchValue } from '../../store';
 
-const Search: FC = (): ReactElement => {
+export const Search: FC = (): ReactElement => {
   const dispatch = useDispatch();
   const [value, setValue] = useState<string>('');
 
@@ -79,5 +79,3 @@ const Search: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default Search;

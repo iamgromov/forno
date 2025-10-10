@@ -1,4 +1,4 @@
-export { default as Cart } from './Cart/Cart';
-export { default as Home } from './Home/Home';
-export { default as NotFound } from './NotFound/NotFound';
-export { default as Product } from './Product/Product';
+export * from './Cart/Cart';
+export * from './Home/Home';
+export * from './NotFound/NotFound';
+export * from './Product/Product';

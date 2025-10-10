@@ -1,7 +1,8 @@
 import { type FC } from 'react';
-import type { Icon } from '../../shared/types/icon.interface';
 
-const BasketIcon: FC<Icon> = ({ ...props }) => {
+import type { Icon } from '../../shared/types';
+
+export const BasketIcon: FC<Icon> = ({ ...props }) => {
   return (
     <svg
       width='20'
@@ -42,5 +43,3 @@ const BasketIcon: FC<Icon> = ({ ...props }) => {
     </svg>
   );
 };
-
-export default BasketIcon;

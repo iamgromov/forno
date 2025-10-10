@@ -1,4 +1,4 @@
-import type { SortType } from '../types/filter.interface';
+import type { SortType } from '../types';
 
 export const CATEGORIES: string[] = [
   'Все',

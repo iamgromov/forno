@@ -1,8 +1,7 @@
 import { Suspense, type FC, type ReactElement } from 'react';
-import { Loader } from '../index';
 
-const LazyLoader: FC<{ children: ReactElement }> = ({ children }) => (
+import { Loader } from '../';
+
+export const LazyLoader: FC<{ children: ReactElement }> = ({ children }): ReactElement => (
   <Suspense fallback={<Loader />}>{children}</Suspense>
 );
-
-export default LazyLoader;

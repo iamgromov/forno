@@ -1,15 +1,17 @@
 import { lazy, type FC, type ReactElement } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import MainLayout from '../shared/layouts/MainLayout';
-import { LazyLoader } from '../shared/ui';
 import { Home } from '../pages';
+import { MainLayout } from '../shared/layouts';
+import { LazyLoader } from '../shared/ui';
 
 import '../scss/app.scss';
 
 const Cart = lazy(() => import('../pages').then((module) => ({ default: module.Cart })));
 const Product = lazy(() => import('../pages').then((module) => ({ default: module.Product })));
-const NotFound = lazy(() => import('../pages').then((module) => ({ default: module.NotFound })));
+const NotFoundPage = lazy(() =>
+  import('../pages').then((module) => ({ default: module.NotFound }))
+);
 
 const App: FC = (): ReactElement => {
   return (
@@ -36,7 +38,7 @@ const App: FC = (): ReactElement => {
           path='*'
           element={
             <LazyLoader>
-              <NotFound />
+              <NotFoundPage />
             </LazyLoader>
           }
         />

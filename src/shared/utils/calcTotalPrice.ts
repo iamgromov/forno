@@ -1,4 +1,4 @@
-import type { ICartItem } from '../types/cart.interface';
+import type { ICartItem } from '../types';
 
 export const calcTotalPrice = (items: ICartItem[]) => {
   return items.reduce((sum, obj) => obj.price * obj.count + sum, 0);

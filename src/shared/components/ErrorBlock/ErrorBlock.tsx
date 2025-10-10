@@ -1,6 +1,6 @@
 import { type FC, type ReactElement } from 'react';
 
-const ErrorBlock: FC = (): ReactElement => {
+export const ErrorBlock: FC = (): ReactElement => {
   return (
     <div className='content__error-block'>
       <h2>
@@ -14,5 +14,3 @@ const ErrorBlock: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default ErrorBlock;

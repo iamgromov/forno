@@ -1,7 +1,8 @@
 import { type FC } from 'react';
-import type { Icon } from '../../shared/types/icon.interface';
 
-const PlusIcon: FC<Icon> = ({ ...props }) => {
+import type { Icon } from '../../shared/types';
+
+export const PlusIcon: FC<Icon> = ({ ...props }) => {
   return (
     <svg
       width='12'
@@ -18,5 +19,3 @@ const PlusIcon: FC<Icon> = ({ ...props }) => {
     </svg>
   );
 };
-
-export default PlusIcon;

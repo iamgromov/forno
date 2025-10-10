@@ -1,26 +1,27 @@
 import { memo, type FC, type ReactElement } from 'react';
 
-import type { CategoriesProps } from '../../types/categories.interface';
 import { CATEGORIES } from '../../constants';
 
-const Categories: FC<CategoriesProps> = memo(({ categoryId, onChangeCategory }): ReactElement => {
-  return (
-    <div className='categories'>
-      <ul>
-        {CATEGORIES.map((elem, index) => {
-          return (
-            <li
-              key={elem}
-              onClick={() => onChangeCategory(index)}
-              className={categoryId === index ? 'active' : ''}
-            >
-              {elem}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-});
+import type { CategoriesProps } from '../../types';
 
-export default Categories;
+export const Categories: FC<CategoriesProps> = memo(
+  ({ categoryId, onChangeCategory }): ReactElement => {
+    return (
+      <div className='categories'>
+        <ul>
+          {CATEGORIES.map((elem, index) => {
+            return (
+              <li
+                key={elem}
+                onClick={() => onChangeCategory(index)}
+                className={categoryId === index ? 'active' : ''}
+              >
+                {elem}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
+);

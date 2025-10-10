@@ -1,6 +1,8 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import type { FilterState, SortType } from '../../types/filter.interface';
+import { SLICE_NAMES } from '../types';
+
+import type { FilterState, SortType } from '../../types';
 
 const initialState: FilterState = {
   categoryId: 0,
@@ -14,7 +16,7 @@ const initialState: FilterState = {
 };
 
 export const filterSlice = createSlice({
-  name: 'filter',
+  name: SLICE_NAMES.FILTER,
   initialState,
   reducers: {
     setCategoryId: (state, action: PayloadAction<number>) => {

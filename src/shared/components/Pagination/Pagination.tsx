@@ -2,12 +2,12 @@ import type { FC, ReactElement } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useSelector } from 'react-redux';
 
-import type { PaginationProps } from '../../types/pagination.interface';
-import { selectors } from '../../store/selectors';
-
 import styles from './Pagination.module.scss';
+import { selectors } from '../../store';
 
-const Pagination: FC<PaginationProps> = ({ currentPage, onChangePage }): ReactElement => {
+import type { PaginationProps } from '../../types';
+
+export const Pagination: FC<PaginationProps> = ({ currentPage, onChangePage }): ReactElement => {
   const { limit } = useSelector(selectors.filterSelector);
 
   return (
@@ -24,5 +24,3 @@ const Pagination: FC<PaginationProps> = ({ currentPage, onChangePage }): ReactEl
     />
   );
 };
-
-export default Pagination;

@@ -1,18 +1,23 @@
 import { useCallback, useEffect, useRef, type FC, type ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 import qs from 'qs';
 
-import type { AppDispatch } from '../../shared/store/store';
-import { STATUS } from '../../shared/types/product.interface';
-import { CATEGORIES, SORT_LIST } from '../../shared/constants';
-import { selectors } from '../../shared/store/selectors';
-import { setCategoryId, setCurrentPage, setFilters } from '../../shared/store/slices/filter';
-import { fetchProducts } from '../../shared/store/slices/products';
 import { Card, Categories, ErrorBlock, Pagination, Sort } from '../../shared/components';
+import { CATEGORIES, SORT_LIST } from '../../shared/constants';
+import {
+  selectors,
+  setCategoryId,
+  setCurrentPage,
+  setFilters,
+  fetchProducts,
+  type AppDispatch,
+} from '../../shared/store';
+import { STATUS } from '../../shared/types';
 import { CardSkeleton } from '../../shared/ui';
 
-const Home: FC = (): ReactElement => {
+export const Home: FC = (): ReactElement => {
   const dispatch = useDispatch<AppDispatch>();
   const { categoryId, limit, currentPage, sortType, searchValue } = useSelector(
     selectors.filterSelector
@@ -98,5 +103,3 @@ const Home: FC = (): ReactElement => {
     </>
   );
 };
-
-export default Home;

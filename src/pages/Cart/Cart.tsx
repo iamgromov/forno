@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { BackIcon, BasketIcon, CartIcon } from '../../assets/icons';
 import { CartEmpty, CartItem } from '../../shared/components';
+import { LINKS } from '../../shared/constants';
 import { selectors, clearCart } from '../../shared/store';
 
 export const Cart: FC = (): ReactElement => {
@@ -54,9 +55,9 @@ export const Cart: FC = (): ReactElement => {
 
               <span>Вернуться назад</span>
             </Link>
-            <div className='button pay-btn'>
-              <span>Оплатить сейчас</span>
-            </div>
+            <a href={LINKS.STUB} rel='noreferrer' target='_blank' className='button pay-btn'>
+              Оплатить сейчас
+            </a>
           </div>
         </div>
       </div>

@@ -1,4 +1,9 @@
-import type { SortType } from '../types';
+import type { SortType, Links } from '../types';
+
+export const LINKS: Record<Links, string> = {
+  STUB: 'https://www.youtube.com/watch?v=K5zP7eQltDE',
+  REPO: 'https://github.com/iamgromov/forno',
+};
 
 export const CATEGORIES: string[] = [
   'Все',

@@ -3,6 +3,7 @@ export * from './cart.interface';
 export * from './categories.interface';
 export * from './filter.interface';
 export * from './icon.interface';
+export * from './links.interface';
 export * from './pagination.interface';
 export * from './product.interface';
 export * from './sort.interface';

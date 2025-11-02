@@ -1,11 +1,21 @@
-@import '../variables';
+@import '../../../scss/variables';
+@import '../../../scss/libs/normalize';
 
-.pizza-block-wrapper {
+.wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
+  overflow: visible;
+
+  &::before {
+    content: '';
+    display: block;
+    height: 538px;
+    visibility: hidden;
+  }
 }
 
-.pizza-block {
+.card {
   width: 280px;
   margin-bottom: 65px;
   padding: 8px;
@@ -15,7 +25,7 @@
   transition: transform 0.2s ease-in-out;
   cursor: pointer;
 
-  &__image {
+  .image {
     width: 260px;
     z-index: 0;
   }
@@ -29,23 +39,21 @@
     }
   }
 
-  &__title {
+  .title {
     font-size: 20px;
     font-weight: 900;
     letter-spacing: 1%;
     margin-bottom: 10px;
   }
 
-  &__description {
-    height: 0;
-    opacity: 0;
-    visibility: hidden;
+  .description {
+    display: none;
     transition: opacity 0.2s ease;
     margin: 10px;
     text-align: left;
   }
 
-  &__selector {
+  .selector {
     display: flex;
     background-color: #f3f3f3;
     border-radius: 10px;
@@ -67,6 +75,7 @@
         font-weight: 600;
         font-size: 14px;
         @include noselect();
+
         &.active {
           background: #ffffff;
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
@@ -77,34 +86,34 @@
     }
   }
 
-  &__bottom {
+  .bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
   }
 
-  &__price {
+  .price {
     font-weight: bold;
     font-size: 22px;
     line-height: 27px;
     letter-spacing: 0.015em;
   }
 
-  &:hover {
-    position: absolute;
-    transform: scale(1.05);
-    box-shadow: 0 0 16px 8px $gray-line;
-    z-index: 1;
+  @media (min-width: 768px) {
+    &:hover {
+      position: absolute;
+      transform: scale(1.05);
+      box-shadow: 0 0 16px 8px $gray-line;
+      z-index: 1;
 
-    .pizza-block__image {
-      animation: spin 120s linear infinite;
-    }
+      .image {
+        animation: spin 120s linear infinite;
+      }
 
-    .pizza-block__description {
-      height: 100%;
-      opacity: 1;
-      visibility: visible;
+      .description {
+        display: block;
+      }
     }
   }
 }

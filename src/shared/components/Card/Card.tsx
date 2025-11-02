@@ -2,8 +2,11 @@ import { useState, type FC, type ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import cn from 'classnames';
+
+import styles from './Card.module.scss';
 import { PlusIcon } from '../../../assets/icons';
-import { PRODUCT_SIZES, PRODUCT_TYPES } from '../../constants';
+import { PRODUCT_TYPES } from '../../constants';
 import { selectors, addProduct } from '../../store';
 
 import type { ICartItem, IProduct } from '../../types';
@@ -20,7 +23,7 @@ export const Card: FC<IProduct> = ({
   const dispatch = useDispatch();
   const cartItem = useSelector(selectors.cartItemByIdSelector(id));
 
-  const [activeType, setActiveType] = useState(0);
+  const [activeType, setActiveType] = useState(types[0]);
   const [activeSize, setActiveSize] = useState(0);
 
   const count = cartItem ? cartItem.count : 0;
@@ -33,27 +36,27 @@ export const Card: FC<IProduct> = ({
       imageUrl,
       title,
       type: PRODUCT_TYPES[activeType],
-      size: PRODUCT_SIZES[activeSize],
+      size: sizes[activeSize],
     };
 
     dispatch(addProduct(item));
   };
 
   return (
-    <div className='pizza-block-wrapper'>
-      <div className='pizza-block'>
+    <div className={styles.wrapper}>
+      <div className={styles.card}>
         <Link to={`/product/${id}`}>
-          <img className='pizza-block__image' src={imageUrl} alt='Pizza' />
-          <h4 className='pizza-block__title'>{title}</h4>
-          <p className='pizza-block__description'>{description}</p>
+          <img className={styles.image} src={imageUrl} alt='Pizza' />
+          <h4 className={styles.title}>{title}</h4>
+          <p className={styles.description}>{description}</p>
         </Link>
-        <div className='pizza-block__selector'>
+        <div className={styles.selector}>
           <ul>
             {types.map((typeId) => {
               return (
                 <li
                   key={typeId}
-                  className={activeType === typeId ? 'active' : ''}
+                  className={cn({ [styles.active]: activeType === typeId })}
                   onClick={() => setActiveType(typeId)}
                 >
                   {PRODUCT_TYPES[typeId]}
@@ -66,7 +69,7 @@ export const Card: FC<IProduct> = ({
               return (
                 <li
                   key={size}
-                  className={activeSize === index ? 'active' : ''}
+                  className={cn({ [styles.active]: activeSize === index })}
                   onClick={() => setActiveSize(index)}
                 >
                   {size} см.
@@ -75,8 +78,8 @@ export const Card: FC<IProduct> = ({
             })}
           </ul>
         </div>
-        <div className='pizza-block__bottom'>
-          <div className='pizza-block__price'>от {price} ₽</div>
+        <div className={styles.bottom}>
+          <div className={styles.price}>от {price} ₽</div>
           <div onClick={onClickAdd} className='button button--outline button--add'>
             <PlusIcon />
             <span>Добавить</span>

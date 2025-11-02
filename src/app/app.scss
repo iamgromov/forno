@@ -1,12 +1,13 @@
-@import './variables';
-@import './libs/normalize';
+@import '../scss/variables';
+@import '../scss/fonts';
+@import '../scss/libs/normalize';
 
-@import './components/all';
+@import '../scss/components/all';
 
-// ::-webkit-scrollbar {
-//   width: 0px;
-//   background: transparent;
-// }
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
 
 body {
   background-color: $background;

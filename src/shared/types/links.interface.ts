@@ -1,1 +1,1 @@
-export type Links = 'STUB' | 'REPO';
+export type Links = 'REPO' | 'STUB' | 'TELEGRAM';

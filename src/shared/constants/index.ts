@@ -1,8 +1,9 @@
 import type { SortType, Links } from '../types';
 
 export const LINKS: Record<Links, string> = {
-  STUB: 'https://www.youtube.com/watch?v=K5zP7eQltDE',
   REPO: 'https://github.com/iamgromov/forno',
+  STUB: 'https://www.youtube.com/watch?v=K5zP7eQltDE',
+  TELEGRAM: 'https://t.me/iamgromov',
 };
 
 export const CATEGORIES: string[] = [

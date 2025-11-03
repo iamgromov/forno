@@ -1,3 +1,14 @@
+@use '../variables' as vars;
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(90, 85, 85, 0.3);
+  border-radius: 4px;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -10,12 +21,13 @@
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  scrollbar-gutter: stable both-edges;
 }
 
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  color: $black;
+  color: vars.$black;
 }
 
 a,
@@ -27,7 +39,7 @@ h2,
 h3,
 h4,
 h5 {
-  color: $black;
+  color: vars.$black;
 }
 
 h1 {
@@ -50,6 +62,5 @@ a {
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Opera and Firefox */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }

@@ -1,5 +1,6 @@
-@import '../../../scss/variables';
-@import '../../../scss/libs/normalize';
+@use '../../../scss/variables' as vars;
+@use '../../../scss/mixins' as mixins;
+@use '../../../scss/libs/normalize' as normalize;
 
 .wrapper {
   position: relative;
@@ -20,7 +21,7 @@
   margin-bottom: 65px;
   padding: 8px;
   border-radius: 28px;
-  background-color: #fff;
+  background-color: vars.$background;
   text-align: center;
   transition: transform 0.2s ease-in-out;
   cursor: pointer;
@@ -31,10 +32,10 @@
   }
 
   @keyframes spin {
-    0% {
+    from {
       transform: rotate(0deg);
     }
-    100% {
+    to {
       transform: rotate(360deg);
     }
   }
@@ -74,10 +75,10 @@
         cursor: pointer;
         font-weight: 600;
         font-size: 14px;
-        @include noselect();
+        @include mixins.noselect;
 
         &.active {
-          background: #ffffff;
+          background: vars.$background;
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
           border-radius: 5px;
           cursor: auto;
@@ -104,7 +105,7 @@
     &:hover {
       position: absolute;
       transform: scale(1.05);
-      box-shadow: 0 0 16px 8px $gray-line;
+      box-shadow: 0 0 16px 8px vars.$gray-line;
       z-index: 1;
 
       .image {

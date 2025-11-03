@@ -1,4 +1,4 @@
-@import '../../../scss/variables';
+@use '../../../scss/variables' as vars;
 
 .root {
   li {
@@ -6,19 +6,19 @@
 
     a {
       display: inline-block;
-      color: $orange;
+      color: vars.$orange;
       text-align: center;
       line-height: 42px;
       width: 45px;
       height: 45px;
-      border: 1px solid $orange;
+      border: 1px solid vars.$orange;
       border-radius: 30px;
       margin-right: 10px;
       cursor: pointer;
 
       &:hover {
-        background-color: $orange;
-        color: $background;
+        background-color: vars.$orange;
+        color: vars.$background;
       }
     }
   }
@@ -26,8 +26,8 @@
   :global {
     .selected {
       a {
-        background-color: $orange;
-        color: $background;
+        background-color: vars.$orange;
+        color: vars.$background;
       }
     }
   }

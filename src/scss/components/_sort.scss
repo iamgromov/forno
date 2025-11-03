@@ -1,4 +1,4 @@
-@import '../variables';
+@use '../variables' as vars;
 
 .sort {
   position: relative;
@@ -15,8 +15,8 @@
     }
 
     span {
-      color: $orange;
-      border-bottom: 1px dashed $orange;
+      color: vars.$orange;
+      border-bottom: 1px dashed vars.$orange;
       cursor: pointer;
     }
   }
@@ -46,7 +46,7 @@
 
         &.active {
           font-weight: bold;
-          color: $orange;
+          color: vars.$orange;
         }
       }
     }

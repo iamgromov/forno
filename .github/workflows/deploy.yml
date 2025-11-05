@@ -35,6 +35,7 @@ jobs:
         run: npm run build
         env:
           VITE_APP_BASE_URL: /forno
+          VITE_API_URL_KEY: ${{ secrets.VITE_API_URL_KEY }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
 import { Search } from '../';
+import styles from './Header.module.scss';
 import { CartIcon, Logo } from '../../../assets/icons';
 import { selectors } from '../../store';
 
@@ -23,26 +24,28 @@ export const Header: FC = (): ReactElement => {
   }, [items]);
 
   return (
-    <div className='header'>
-      <div className='container'>
-        <Link to='/' className='header__logo'>
+    <div className={styles.wrapper}>
+      <div className={styles.header}>
+        <Link to='/' className={styles.logo}>
           <Logo />
         </Link>
 
-        {location.pathname !== '/cart' && <Search />}
+        {location.pathname !== '/cart' && (
+          <div className={styles.buttons}>
+            <Search />
 
-        <div className='header__cart'>
-          <Link to='/cart' className='button button--cart'>
-            {totalPrice ? (
-              <>
-                <span className='button__price'>{totalPrice} ₽</span>
-                <div className='button__delimiter'></div>
-              </>
-            ) : null}
-            <CartIcon />
-            <span>{totalCount}</span>
-          </Link>
-        </div>
+            <Link to='/cart' className={styles.cart}>
+              {totalPrice ? (
+                <>
+                  <span className={styles.price}>{totalPrice} ₽</span>
+                  <span className={styles.delimiter}></span>
+                </>
+              ) : null}
+              <CartIcon />
+              <span>{totalCount}</span>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

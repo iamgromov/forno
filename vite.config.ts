@@ -1,7 +1,11 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
-const isVercel = !!process.env.VERCEL;
+const getBase = (): string => {
+  if (process.env.VERCEL) return '/';
+  if (process.env.NODE_ENV === 'production') return '/forno';
+  return '/';
+};
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -12,7 +16,7 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-    open: false,
+    open: true,
   },
-  base: isVercel ? '/' : '/forno',
+  base: getBase(),
 });

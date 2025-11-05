@@ -61,7 +61,7 @@ export const Search: FC = (): ReactElement => {
       {value && (
         <svg
           onClick={onClickClear}
-          className={styles.clear__icon}
+          className={styles.clear}
           fill='none'
           height='24'
           stroke='currentColor'

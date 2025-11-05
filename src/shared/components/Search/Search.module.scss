@@ -1,3 +1,5 @@
+@use '../../../scss/variables' as vars;
+
 .root {
   position: relative;
 }
@@ -14,8 +16,9 @@
 .input {
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 15px 20px 15px 45px;
-  width: 300px;
-  border-radius: 10px;
+  width: auto;
+  max-width: 300px;
+  border-radius: vars.$border-radius;
   font-size: 16px;
   transition: all 0.15s ease-in-out;
 
@@ -24,7 +27,7 @@
   }
 }
 
-.clear__icon {
+.clear {
   width: 30px;
   height: 30px;
   opacity: 0.5;

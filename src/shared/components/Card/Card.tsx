@@ -46,7 +46,7 @@ export const Card: FC<IProduct> = ({
     <div className={styles.wrapper}>
       <div className={styles.card}>
         <Link to={`/product/${id}`}>
-          <img className={styles.image} src={imageUrl} alt='Pizza' />
+          <img className={styles.image} src={imageUrl} alt={title} />
           <h4 className={styles.title}>{title}</h4>
           <p className={styles.description}>{description}</p>
         </Link>

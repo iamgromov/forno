@@ -6,28 +6,30 @@
   position: relative;
   display: flex;
   justify-content: center;
-  overflow: visible;
 
   &::before {
     content: '';
     display: block;
     height: 538px;
     visibility: hidden;
+    pointer-events: none;
   }
 }
 
 .card {
-  width: 280px;
-  margin-bottom: 65px;
+  width: 100%;
   padding: 8px;
   border-radius: 28px;
   background-color: vars.$background;
   text-align: center;
+  transform: scale(1);
   transition: transform 0.2s ease-in-out;
   cursor: pointer;
 
   .image {
-    width: 260px;
+    width: 100%;
+    max-width: 260px;
+    height: auto;
     z-index: 0;
   }
 
@@ -48,10 +50,12 @@
   }
 
   .description {
-    display: none;
+    display: block;
     transition: opacity 0.2s ease;
     margin: 10px;
     text-align: left;
+    font-size: 14px;
+    @include mixins.line-clamp(3);
   }
 
   .selector {
@@ -92,6 +96,7 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
+    flex-direction: row;
   }
 
   .price {
@@ -101,11 +106,16 @@
     letter-spacing: 0.015em;
   }
 
-  @media (min-width: 768px) {
+  // Tablet
+  @media (min-width: vars.$breakpoint-md) {
+    .description {
+      display: none;
+    }
+
     &:hover {
       position: absolute;
       transform: scale(1.05);
-      box-shadow: 0 0 16px 8px vars.$gray-line;
+      box-shadow: 0 0 16px 8px vars.$gray-200;
       z-index: 1;
 
       .image {
@@ -115,6 +125,24 @@
       .description {
         display: block;
       }
+    }
+  }
+
+  // Desktop
+  @media (min-width: vars.$breakpoint-lg) {
+    max-width: 300px;
+
+    .image {
+      max-width: 280px;
+    }
+  }
+
+  // Large desktop
+  @media (min-width: vars.$breakpoint-xl) {
+    max-width: 320px;
+
+    .image {
+      max-width: 300px;
     }
   }
 }

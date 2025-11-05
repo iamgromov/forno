@@ -1,8 +1,9 @@
-@use '../variables' as vars;
+@use '../../../scss/variables' as vars;
 
 .sort {
   position: relative;
-  &__label {
+
+  .label {
     display: flex;
     align-items: center;
 
@@ -11,17 +12,18 @@
     }
 
     b {
+      width: 118px;
       margin-right: 8px;
     }
 
     span {
-      color: vars.$orange;
-      border-bottom: 1px dashed vars.$orange;
+      color: vars.$primary;
+      border-bottom: 1px dashed vars.$primary;
       cursor: pointer;
     }
   }
 
-  &__popup {
+  .popup {
     position: absolute;
     right: 0;
     margin-top: 15px;
@@ -46,7 +48,7 @@
 
         &.active {
           font-weight: bold;
-          color: vars.$orange;
+          color: vars.$primary;
         }
       }
     }

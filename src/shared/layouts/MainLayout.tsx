@@ -8,9 +8,7 @@ export const MainLayout: FC = (): ReactElement => {
     <div className='wrapper'>
       <Header />
 
-      <div className='content'>
-        <Outlet />
-      </div>
+      <Outlet />
 
       <Footer />
     </div>

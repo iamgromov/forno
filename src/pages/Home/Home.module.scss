@@ -1,0 +1,87 @@
+@use '../../scss/variables' as vars;
+@use '../../scss/mixins' as mixins;
+
+.content {
+  padding: 20px 0;
+
+  .filter {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: end;
+    gap: 20px;
+
+    .categories {
+      margin-top: 20px;
+      width: 100%;
+      overflow-x: auto;
+
+      @include mixins.hide-scrollbar;
+
+      ul {
+        width: 800px;
+      }
+    }
+
+    .sort {
+      align-self: flex-start;
+
+      b {
+        display: none;
+      }
+    }
+  }
+
+  .title {
+    margin: 30px 0;
+    font-size: 42px;
+    font-weight: 800;
+  }
+
+  .items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  // Small tablet
+  @media (min-width: vars.$breakpoint-sm) {
+    .items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  // Tablet
+  @media (min-width: vars.$breakpoint-md) {
+    padding: 30px 0;
+
+    .filter {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+
+  // Desktop
+  @media (min-width: vars.$breakpoint-lg) {
+    .title {
+      margin: 30px 0;
+    }
+
+    .items {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+  }
+
+  // Large desktop
+  @media (min-width: vars.$breakpoint-xl) {
+    .title {
+      margin: 40px 0;
+    }
+
+    .items {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

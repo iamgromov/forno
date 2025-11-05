@@ -6,6 +6,7 @@ import cn from 'classnames';
 
 import styles from './Card.module.scss';
 import { PlusIcon } from '../../../assets/icons';
+import placeholder from '../../../assets/img/placeholder.svg';
 import { PRODUCT_TYPES } from '../../constants';
 import { selectors, addProduct } from '../../store';
 
@@ -46,7 +47,14 @@ export const Card: FC<IProduct> = ({
     <div className={styles.wrapper}>
       <div className={styles.card}>
         <Link to={`/product/${id}`}>
-          <img className={styles.image} src={imageUrl} alt={title} />
+          <img
+            className={styles.image}
+            src={imageUrl}
+            alt={title}
+            onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+              e.currentTarget.src = placeholder;
+            }}
+          />
           <h4 className={styles.title}>{title}</h4>
           <p className={styles.description}>{description}</p>
         </Link>

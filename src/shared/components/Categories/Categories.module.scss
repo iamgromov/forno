@@ -1,19 +1,29 @@
-@use '../variables' as vars;
-@use '../mixins' as mixins;
+@use '../../../scss/variables' as vars;
+@use '../../../scss/mixins' as mixins;
 @use 'sass:color';
 
 .categories {
+  width: 100%;
+  overflow-x: auto;
+
+  @include mixins.hide-scrollbar;
+
   ul {
     display: flex;
+    width: 800px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 10px;
 
     li {
       background-color: #f9f9f9;
       padding: 13px 30px;
       border-radius: 30px;
-      margin-right: 10px;
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.1s ease-in-out;
+      flex-shrink: 0;
       @include mixins.noselect;
 
       &:hover {
@@ -30,4 +40,14 @@
       }
     }
   }
+
+  // // Desktop
+  // @media (min-width: vars.$breakpoint-lg) {
+  //   width: auto;
+  //   overflow-x: visible;
+
+  //   ul {
+  //     width: auto;
+  //   }
+  // }
 }

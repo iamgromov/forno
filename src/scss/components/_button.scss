@@ -4,13 +4,14 @@
 
 .button {
   display: inline-block;
-  background-color: vars.$orange;
+  background-color: vars.$primary;
   border-radius: 30px;
   padding: 10px 20px;
   min-width: 100px;
   text-align: center;
   cursor: pointer;
-  transition: background-color vars.$duration ease-in-out, border-color vars.$duration ease-in-out;
+  transition: background-color vars.$duration-base ease-in-out,
+    border-color vars.$duration-base ease-in-out;
   border: 1px solid transparent;
   @include mixins.noselect;
 
@@ -23,15 +24,15 @@
   span,
   path,
   svg {
-    transition: all vars.$duration ease-in-out;
+    transition: all vars.$duration-base ease-in-out;
   }
 
   &:hover {
-    background-color: color.adjust(vars.$orange, $lightness: 8%);
+    background-color: color.adjust(vars.$primary, $lightness: 8%);
   }
 
   &:active {
-    background-color: color.adjust(vars.$orange, $lightness: 12%);
+    background-color: color.adjust(vars.$primary, $lightness: 12%);
     transform: translateY(1px);
   }
 
@@ -47,30 +48,30 @@
   }
 
   &--black {
-    background-color: vars.$black;
+    background-color: vars.$secondary;
 
     &:hover,
     &:active {
-      background-color: color.adjust(vars.$black, $lightness: 10%);
+      background-color: color.adjust(vars.$secondary, $lightness: 10%);
     }
   }
 
   &--outline {
     background-color: #fff;
-    border-color: vars.$orange;
+    border-color: vars.$primary;
     &,
     span {
-      color: vars.$orange;
+      color: vars.$primary;
     }
 
     svg {
       path {
-        fill: vars.$orange;
+        fill: vars.$primary;
       }
     }
 
     &:hover {
-      background-color: vars.$orange;
+      background-color: vars.$primary;
 
       &,
       span {
@@ -85,7 +86,7 @@
     }
 
     &:active {
-      background-color: color.adjust(vars.$orange, $lightness: 8%);
+      background-color: color.adjust(vars.$primary, $lightness: 8%);
     }
   }
 
@@ -140,14 +141,14 @@
     &:hover {
       i {
         background-color: #fff;
-        color: vars.$orange;
+        color: vars.$primary;
       }
     }
 
     i {
       display: inline-block;
       border-radius: 30px;
-      background-color: vars.$orange;
+      background-color: vars.$primary;
       color: #fff;
       font-weight: 600;
       width: 22px;

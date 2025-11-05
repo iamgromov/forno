@@ -6,19 +6,19 @@
 
     a {
       display: inline-block;
-      color: vars.$orange;
+      color: vars.$primary;
       text-align: center;
       line-height: 42px;
       width: 45px;
       height: 45px;
-      border: 1px solid vars.$orange;
+      border: 1px solid vars.$primary;
       border-radius: 30px;
       margin-right: 10px;
       cursor: pointer;
 
       &:hover {
-        background-color: vars.$orange;
-        color: vars.$background;
+        background-color: vars.$primary;
+        color: vars.$light;
       }
     }
   }
@@ -26,8 +26,8 @@
   :global {
     .selected {
       a {
-        background-color: vars.$orange;
-        color: vars.$background;
+        background-color: vars.$primary;
+        color: vars.$light;
       }
     }
   }

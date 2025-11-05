@@ -1,6 +1,9 @@
 import { memo, useEffect, useRef, useState, type FC, type ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
+import cn from 'classnames';
+
+import styles from './Sort.module.scss';
 import { SORT_LIST } from '../../constants/';
 import { setSortType } from '../../store';
 
@@ -34,8 +37,8 @@ export const Sort: FC<SortProps> = memo(({ sortType }): ReactElement => {
   }, []);
 
   return (
-    <div ref={sortRef} className='sort'>
-      <div className='sort__label'>
+    <div ref={sortRef} className={styles.sort}>
+      <div className={styles.label}>
         <svg
           width='10'
           height='6'
@@ -52,14 +55,14 @@ export const Sort: FC<SortProps> = memo(({ sortType }): ReactElement => {
         <span onClick={() => setVisible(!visible)}>{sortType.title}</span>
       </div>
       {visible && (
-        <div className='sort__popup'>
+        <div className={styles.popup}>
           <ul>
             {SORT_LIST.map((obj) => {
               return (
                 <li
                   key={obj.title}
                   onClick={() => handleClickSortType(obj)}
-                  className={sortType.sortProperty === obj.sortProperty ? 'active' : ''}
+                  className={cn({ [styles.active]: sortType.sortProperty === obj.sortProperty })}
                 >
                   {obj.title}
                 </li>

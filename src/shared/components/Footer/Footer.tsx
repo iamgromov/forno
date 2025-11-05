@@ -1,11 +1,12 @@
 import { type FC, type ReactElement } from 'react';
 
+import styles from './Footer.module.scss';
 import { LINKS } from '../../constants';
 
 export const Footer: FC = (): ReactElement => {
   return (
-    <div className='footer'>
-      <div className='container'>
+    <div className={styles.footer}>
+      <div className={styles.container}>
         <a href={LINKS.TELEGRAM} rel='noreferrer' target='_blank'>
           @iamgromov / {new Date().getFullYear()}
         </a>

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import qs from 'qs';
 
+import styles from './Home.module.scss';
 import { Card, Categories, ErrorBlock, Pagination, Sort } from '../../shared/components';
 import { CATEGORIES, SORT_LIST } from '../../shared/constants';
 import {
@@ -81,25 +82,29 @@ export const Home: FC = (): ReactElement => {
 
   return (
     <>
-      <div className='content__top'>
-        <Categories categoryId={categoryId} onChangeCategory={onChangeCategory} />
-        <Sort sortType={sortType} />
+      <div className={styles.content}>
+        <div className={styles.filter}>
+          <Categories categoryId={categoryId} onChangeCategory={onChangeCategory} />
+          <Sort sortType={sortType} />
+        </div>
+
+        <h2 className={styles.title}>{CATEGORIES[categoryId]} пиццы</h2>
+
+        {status === STATUS.ERROR ? (
+          <ErrorBlock />
+        ) : (
+          <>
+            <div className={styles.items}>
+              {status === STATUS.LOADING
+                ? [...new Array(limit)].map((_, index) => <CardSkeleton key={index} />)
+                : products.map((product) => {
+                    return <Card key={product.id} {...product} />;
+                  })}
+            </div>
+            <Pagination currentPage={currentPage} onChangePage={onChangePage} />
+          </>
+        )}
       </div>
-      <h2 className='content__title'>{CATEGORIES[categoryId]} пиццы</h2>
-      {status === STATUS.ERROR ? (
-        <ErrorBlock />
-      ) : (
-        <>
-          <div className='content__items'>
-            {status === STATUS.LOADING
-              ? [...new Array(limit)].map((_, index) => <CardSkeleton key={index} />)
-              : products.map((product) => {
-                  return <Card key={product.id} {...product} />;
-                })}
-          </div>
-          <Pagination currentPage={currentPage} onChangePage={onChangePage} />
-        </>
-      )}
     </>
   );
 };

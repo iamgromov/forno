@@ -3,49 +3,68 @@
 @use 'sass:color';
 
 .wrapper {
-  padding: 40px 0;
-  border-bottom: 1px solid vars.$gray-line;
+  padding: 10px 0;
+  border-bottom: 1px solid vars.$gray-200;
 
   .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
 
     .logo:active {
       transform: translateY(1px);
     }
 
     .buttons {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      width: auto;
+      background: #fff;
+      padding: 6px;
+      border-radius: 38px;
+      box-shadow: 0 0 16px 8px vars.$gray-200;
+      border: 1px solid vars.$gray-200;
+
+      .price,
+      .delimiter {
+        display: none;
+      }
     }
 
     .cart {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-width: 100px;
-      margin-left: 20px;
-      padding: 12px 25px;
+      min-width: auto;
+      margin-left: 0;
+      padding: 10px 20px;
 
       border: 1px solid transparent;
       border-radius: vars.$border-radius;
-      background-color: vars.$orange;
+      background-color: vars.$primary;
 
       text-align: center;
       font-weight: 600;
-      font-size: 16px;
-      line-height: 23px;
+      font-size: 14px;
+      line-height: 1.2;
 
-      transition: background-color vars.$duration ease-in-out,
-        border-color vars.$duration ease-in-out;
+      transition: background-color vars.$duration-base ease-in-out,
+        border-color vars.$duration-base ease-in-out;
 
       cursor: pointer;
       @include mixins.noselect;
 
       &:hover {
-        background-color: color.adjust(vars.$orange, $lightness: 8%);
+        background-color: color.adjust(vars.$primary, $lightness: 8%);
       }
 
       &:active {
@@ -58,44 +77,78 @@
 
       .delimiter {
         width: 1px;
-        height: 25px;
+        height: 20px;
         background-color: rgba(255, 255, 255, 0.25);
-        margin: 0 14px;
+        margin: 0 10px;
       }
 
       svg {
-        margin-right: 8px;
+        margin-right: 6px;
         margin-bottom: 1px;
       }
 
       span {
         font-weight: 600;
-        font-size: 16px;
+        font-size: 14px;
       }
     }
   }
 }
 
-@media (max-width: 780px) {
-  .price,
-  .delimiter {
-    display: none;
+// Tablet
+@media (min-width: vars.$breakpoint-md) {
+  .wrapper {
+    padding: 20px 0;
+
+    .header {
+      flex-wrap: nowrap;
+      gap: 0;
+
+      .buttons {
+        position: static;
+        transform: none;
+        z-index: auto;
+
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        width: auto;
+
+        .price,
+        .delimiter {
+          display: block;
+        }
+      }
+
+      .cart {
+        min-width: 100px;
+        margin-left: 20px;
+        padding: 12px 25px;
+        font-size: 16px;
+        line-height: 23px;
+
+        .delimiter {
+          height: 25px;
+          margin: 0 14px;
+        }
+
+        svg {
+          margin-right: 8px;
+        }
+
+        span {
+          font-size: 16px;
+        }
+      }
+    }
   }
 }
 
-@media (max-width: 768px) {
-  .buttons {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 20;
-
-    width: auto;
-    background: #fff;
-    padding: 6px;
-    border-radius: 50px;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid vars.$gray-line;
+// Desktop
+@media (min-width: vars.$breakpoint-lg) {
+  .wrapper {
+    padding: 40px 0;
   }
 }

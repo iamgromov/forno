@@ -1,11 +1,11 @@
 import { type FC, type ReactElement } from 'react';
 
+import styles from './ErrorBlock.module.scss';
+
 export const ErrorBlock: FC = (): ReactElement => {
   return (
-    <div className='content__error-block'>
-      <h2>
-        Произошла ошибка <span>😔</span>
-      </h2>
+    <div className={styles.wrapper}>
+      <h2>Произошла ошибка 😔</h2>
       <p>
         К сожалению, не удалось получить питсы.
         <br />

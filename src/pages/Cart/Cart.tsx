@@ -2,10 +2,14 @@ import type { FC, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import cn from 'classnames';
+
+import styles from './Cart.module.scss';
 import { BackIcon, BasketIcon, CartIcon } from '../../assets/icons';
 import { CartEmpty, CartItem } from '../../shared/components';
 import { LINKS } from '../../shared/constants';
 import { selectors, clearCart } from '../../shared/store';
+import { formatRubles } from '../../shared/utils';
 
 export const Cart: FC = (): ReactElement => {
   const dispatch = useDispatch();
@@ -20,42 +24,48 @@ export const Cart: FC = (): ReactElement => {
   if (!totalPrice) return <CartEmpty />;
 
   return (
-    <div className='container container--cart'>
-      <div className='cart'>
-        <div className='cart__top'>
-          <h2 className='content__title'>
+    <div className={styles.cart}>
+      <div className={styles.wrapper}>
+        <div className={styles.top}>
+          <h2 className={styles.title}>
             <CartIcon />
             Корзина
           </h2>
-          <div className='cart__clear' onClick={onClickClear}>
+          <div className={styles.clear} onClick={onClickClear}>
             <BasketIcon />
-
             <span>Очистить корзину</span>
           </div>
         </div>
-        <div className='content__items'>
+
+        <div className={styles.items}>
           {items.map((item) => (
             <CartItem key={item.id} {...item} />
           ))}
         </div>
-        <div className='cart__bottom'>
-          <div className='cart__bottom-details'>
+
+        <div className={styles.bottom}>
+          <div className={styles.details}>
             <span>
               {' '}
               Всего пицц: <b>{totalCount} шт.</b>{' '}
             </span>
             <span>
               {' '}
-              Сумма заказа: <b>{totalPrice} ₽</b>{' '}
+              Сумма заказа: <b>{formatRubles(totalPrice)}</b>{' '}
             </span>
           </div>
-          <div className='cart__bottom-buttons'>
-            <Link to='/' className='button button--outline button--add go-back-btn'>
+          <div className={styles.buttons}>
+            <Link to='/' className={cn(styles.button, styles.back)}>
               <BackIcon />
 
               <span>Вернуться назад</span>
             </Link>
-            <a href={LINKS.STUB} rel='noreferrer' target='_blank' className='button pay-btn'>
+            <a
+              href={LINKS.STUB}
+              rel='noopener noreferrer'
+              target='_blank'
+              className={cn(styles.button, styles.pay)}
+            >
               Оплатить сейчас
             </a>
           </div>

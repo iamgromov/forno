@@ -1,8 +1,10 @@
 import { type FC, type ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
+import styles from './CartItem.module.scss';
 import { AddIcon, ClearIcon, RemoveIcon } from '../../../assets/icons';
 import { addProduct, removeProduct, removeAllSimilarProducts } from '../../store';
+import { formatRubles } from '../../utils';
 
 import type { ICartItem } from '../../types';
 
@@ -50,40 +52,35 @@ export const CartItem: FC<ICartItem> = ({
   };
 
   return (
-    <div className='cart__item'>
-      <div className='cart__item-img'>
-        <img className='pizza-block__image' src={imageUrl} alt={title} />
+    <div className={styles.item}>
+      <div className={styles.image}>
+        <img src={imageUrl} alt={title} />
       </div>
-      <div className='cart__item-info'>
+
+      <div className={styles.title}>
         <h3>{title}</h3>
         <p>
           {type}, {size} см.
         </p>
       </div>
-      <div className='cart__item-count'>
-        <button
-          className='button button--outline button--circle cart__item-count-minus'
-          disabled={count == 1}
-          onClick={onClickRemove}
-        >
+
+      <div className={styles.count}>
+        <button className={styles.minus} disabled={count == 1} onClick={onClickRemove}>
           <RemoveIcon />
         </button>
         <b>{count}</b>
-        <button
-          className='button button--outline button--circle cart__item-count-plus'
-          onClick={onClickAdd}
-        >
+        <button className={styles.plus} onClick={onClickAdd}>
           <AddIcon />
         </button>
       </div>
-      <div className='cart__item-price'>
-        <b>{price * count} ₽</b>
+
+      <div className={styles.price}>
+        <b>{formatRubles(price * count)}</b>
       </div>
-      <div className='cart__item-remove'>
-        <div className='button button--outline button--circle' onClick={onClickRemoveSimilar}>
-          <ClearIcon />
-        </div>
-      </div>
+
+      <button className={styles.remove} onClick={onClickRemoveSimilar}>
+        <ClearIcon />
+      </button>
     </div>
   );
 };

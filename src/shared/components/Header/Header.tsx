@@ -6,6 +6,7 @@ import { Search } from '../';
 import styles from './Header.module.scss';
 import { CartIcon, Logo } from '../../../assets/icons';
 import { selectors } from '../../store';
+import { formatRubles } from '../../utils';
 
 export const Header: FC = (): ReactElement => {
   const { items, totalPrice } = useSelector(selectors.cartSelector);
@@ -24,8 +25,8 @@ export const Header: FC = (): ReactElement => {
   }, [items]);
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.header}>
+    <div className={styles.header}>
+      <div className={styles.wrapper}>
         <Link to='/' className={styles.logo}>
           <Logo />
         </Link>
@@ -37,7 +38,7 @@ export const Header: FC = (): ReactElement => {
             <Link to='/cart' className={styles.cart}>
               {totalPrice ? (
                 <>
-                  <span className={styles.price}>{totalPrice} ₽</span>
+                  <span className={styles.price}>{formatRubles(totalPrice)}</span>
                   <span className={styles.delimiter}></span>
                 </>
               ) : null}

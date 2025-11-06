@@ -1,6 +1,7 @@
 export * from './api.interface';
 export * from './cart.interface';
 export * from './categories.interface';
+export * from './currency.interface';
 export * from './filter.interface';
 export * from './icon.interface';
 export * from './links.interface';

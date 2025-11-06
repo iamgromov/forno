@@ -6,16 +6,16 @@ import styles from './NotFoundBlock.module.scss';
 export const NotFoundBlock: FC = (): ReactElement => {
   return (
     <div className={styles.root}>
-      <h1>
-        <span>😔</span>
+      <h2>
+        😔
         <br />
         Ничего не найдено
-      </h1>
+      </h2>
       <p className={styles.description}>
         К сожалению данная страница отсутствует в нашем интернет-магазине
       </p>
       <br />
-      <Link to='/' className='button button--black'>
+      <Link to='/' className={styles.button}>
         <span>На главную</span>
       </Link>
     </div>

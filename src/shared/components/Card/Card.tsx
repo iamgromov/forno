@@ -9,6 +9,7 @@ import { PlusIcon } from '../../../assets/icons';
 import placeholder from '../../../assets/img/placeholder.svg';
 import { PRODUCT_TYPES } from '../../constants';
 import { selectors, addProduct } from '../../store';
+import { formatRubles } from '../../utils';
 
 import type { ICartItem, IProduct } from '../../types';
 
@@ -87,8 +88,8 @@ export const Card: FC<IProduct> = ({
           </ul>
         </div>
         <div className={styles.bottom}>
-          <div className={styles.price}>от {price} ₽</div>
-          <div onClick={onClickAdd} className='button button--outline button--add'>
+          <div className={styles.price}>от {formatRubles(price)}</div>
+          <div onClick={onClickAdd} className={styles.add}>
             <PlusIcon />
             <span>Добавить</span>
             {count > 0 && <i>{count}</i>}

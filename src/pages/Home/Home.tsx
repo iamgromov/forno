@@ -81,30 +81,28 @@ export const Home: FC = (): ReactElement => {
   }, [categoryId, limit, sortType, searchValue, currentPage, dispatch]);
 
   return (
-    <>
-      <div className={styles.content}>
-        <div className={styles.filter}>
-          <Categories categoryId={categoryId} onChangeCategory={onChangeCategory} />
-          <Sort sortType={sortType} />
-        </div>
-
-        <h2 className={styles.title}>{CATEGORIES[categoryId]} пиццы</h2>
-
-        {status === STATUS.ERROR ? (
-          <ErrorBlock />
-        ) : (
-          <>
-            <div className={styles.items}>
-              {status === STATUS.LOADING
-                ? [...new Array(limit)].map((_, index) => <CardSkeleton key={index} />)
-                : products.map((product) => {
-                    return <Card key={product.id} {...product} />;
-                  })}
-            </div>
-            <Pagination currentPage={currentPage} onChangePage={onChangePage} />
-          </>
-        )}
+    <div className={styles.content}>
+      <div className={styles.filter}>
+        <Categories categoryId={categoryId} onChangeCategory={onChangeCategory} />
+        <Sort sortType={sortType} />
       </div>
-    </>
+
+      <h2 className={styles.title}>{CATEGORIES[categoryId]} пиццы</h2>
+
+      {status === STATUS.ERROR ? (
+        <ErrorBlock />
+      ) : (
+        <>
+          <div className={styles.items}>
+            {status === STATUS.LOADING
+              ? [...new Array(limit)].map((_, index) => <CardSkeleton key={index} />)
+              : products.map((product) => {
+                  return <Card key={product.id} {...product} />;
+                })}
+          </div>
+          <Pagination currentPage={currentPage} onChangePage={onChangePage} />
+        </>
+      )}
+    </div>
   );
 };

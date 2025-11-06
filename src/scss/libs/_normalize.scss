@@ -27,6 +27,7 @@ html {
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  background-color: vars.$background;
   color: vars.$secondary;
 }
 

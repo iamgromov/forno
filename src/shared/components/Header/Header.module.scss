@@ -2,16 +2,23 @@
 @use '../../../scss/mixins';
 @use 'sass:color';
 
-.wrapper {
+.header {
   padding: 10px 0;
   border-bottom: 1px solid vars.$gray-200;
 
-  .header {
+  .wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 15px;
+
+    .logo {
+      svg {
+        width: 160px;
+        height: 32px;
+      }
+    }
 
     .logo:active {
       transform: translateY(1px);
@@ -45,8 +52,8 @@
       align-items: center;
       justify-content: center;
       min-width: auto;
-      margin-left: 0;
-      padding: 10px 20px;
+      margin-left: 8px;
+      padding: 14px 25px;
 
       border: 1px solid transparent;
       border-radius: vars.$border-radius;
@@ -97,12 +104,19 @@
 
 // Tablet
 @media (min-width: vars.$breakpoint-md) {
-  .wrapper {
+  .header {
     padding: 20px 0;
 
-    .header {
+    .wrapper {
       flex-wrap: nowrap;
       gap: 0;
+
+      .logo {
+        svg {
+          width: 200px;
+          height: 50px;
+        }
+      }
 
       .buttons {
         position: static;
@@ -148,7 +162,7 @@
 
 // Desktop
 @media (min-width: vars.$breakpoint-lg) {
-  .wrapper {
+  .header {
     padding: 40px 0;
   }
 }

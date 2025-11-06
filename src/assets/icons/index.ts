@@ -1,4 +1,5 @@
 export * from './AddIcon';
+export * from './ArrowUpIcon';
 export * from './BackIcon';
 export * from './BasketIcon';
 export * from './CartIcon';

@@ -7,13 +7,30 @@
     display: flex;
     align-items: center;
 
-    svg {
-      margin-right: 8px;
+    .button {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+      margin: 0 8px;
+
+      &:hover {
+        background-color: vars.$gray-200;
+      }
+    }
+
+    .flipped {
+      transform: rotate(180deg);
     }
 
     b {
-      width: 118px;
-      margin-right: 8px;
+      width: 130px;
     }
 
     span {

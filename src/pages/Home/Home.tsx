@@ -20,7 +20,7 @@ import { CardSkeleton } from '../../shared/ui';
 
 export const Home: FC = (): ReactElement => {
   const dispatch = useDispatch<AppDispatch>();
-  const { categoryId, limit, currentPage, sortType, searchValue } = useSelector(
+  const { categoryId, limit, currentPage, sortDirection, sortType, searchValue } = useSelector(
     selectors.filterSelector
   );
   const { status, products } = useSelector(selectors.productsSelector);
@@ -58,8 +58,9 @@ export const Home: FC = (): ReactElement => {
       const params = qs.parse(window.location.search.substring(1));
 
       const sortType = SORT_LIST.find((item) => item.sortProperty === params.sortProperty);
+      const sortDirection = 'asc';
 
-      dispatch(setFilters({ ...params, sortType }));
+      dispatch(setFilters({ ...params, sortDirection, sortType }));
 
       isSearch.current = true;
     }
@@ -68,8 +69,8 @@ export const Home: FC = (): ReactElement => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    const sortBy = sortType.sortProperty.replace('-', '');
-    const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
+    const sortBy = sortType.sortProperty;
+    const order = sortDirection;
     const category = categoryId ? `category=${categoryId}` : '';
     const search = searchValue ? `&search=${searchValue}` : '';
 
@@ -78,13 +79,13 @@ export const Home: FC = (): ReactElement => {
     }
 
     isSearch.current = false;
-  }, [categoryId, limit, sortType, searchValue, currentPage, dispatch]);
+  }, [categoryId, limit, sortDirection, sortType, searchValue, currentPage, dispatch]);
 
   return (
     <div className={styles.content}>
       <div className={styles.filter}>
         <Categories categoryId={categoryId} onChangeCategory={onChangeCategory} />
-        <Sort sortType={sortType} />
+        <Sort sortDirection={sortDirection} sortType={sortType} />
       </div>
 
       <h2 className={styles.title}>{CATEGORIES[categoryId]} пиццы</h2>

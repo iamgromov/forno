@@ -1,8 +1,8 @@
 import { type FC } from 'react';
 
-import type { Icon } from '../../shared/types';
+import type { IconProps } from '../../shared/types';
 
-export const RemoveIcon: FC<Icon> = ({ ...props }) => {
+export const RemoveIcon: FC<IconProps> = ({ ...props }) => {
   return (
     <svg
       width='10'

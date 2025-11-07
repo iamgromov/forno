@@ -10,20 +10,29 @@
 
   ul {
     display: flex;
+
+    gap: 10px;
+
     width: 800px;
     margin: 0;
     padding: 0;
+
     list-style: none;
-    gap: 10px;
 
     li {
-      background-color: #f9f9f9;
-      padding: 13px 30px;
-      border-radius: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.1s ease-in-out;
       flex-shrink: 0;
+
+      padding: 13px 30px;
+
+      background-color: #f9f9f9;
+      border-radius: 30px;
+
+      font-weight: bold;
+
+      transition: background-color 0.1s ease-in-out;
+
+      cursor: pointer;
+
       @include mixins.noselect;
 
       &:hover {
@@ -36,6 +45,7 @@
 
       &.active {
         background-color: #282828;
+
         color: #fff;
       }
     }

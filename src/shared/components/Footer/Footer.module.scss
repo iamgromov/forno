@@ -2,12 +2,14 @@
 
 .footer {
   height: 180px;
-  border-top: 1px solid vars.$gray-200;
   padding: 40px 0;
+
+  border-top: 1px solid vars.$gray-200;
 
   .wrapper {
     display: flex;
-    align-items: center;
+
     justify-content: space-between;
+    align-items: center;
   }
 }

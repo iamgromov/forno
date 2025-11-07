@@ -4,13 +4,15 @@
 
 .header {
   padding: 10px 0;
+
   border-bottom: 1px solid vars.$gray-200;
 
   .wrapper {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
     gap: 15px;
 
     .logo {
@@ -28,18 +30,22 @@
       position: fixed;
       bottom: 20px;
       left: 50%;
-      transform: translateX(-50%);
       z-index: 20;
 
       display: flex;
-      align-items: center;
+
       justify-content: center;
+      align-items: center;
+
       width: auto;
-      background: #fff;
       padding: 6px;
+
+      background: #fff;
+      border: 1px solid vars.$gray-200;
       border-radius: 38px;
       box-shadow: 0 0 16px 8px vars.$gray-200;
-      border: 1px solid vars.$gray-200;
+
+      transform: translateX(-50%);
 
       .price,
       .delimiter {
@@ -49,25 +55,30 @@
 
     .cart {
       display: flex;
-      align-items: center;
+
       justify-content: center;
+      align-items: center;
+
       min-width: auto;
       margin-left: 8px;
       padding: 14px 25px;
 
-      border: 1px solid transparent;
-      border-radius: vars.$border-radius;
       background-color: vars.$primary;
 
-      text-align: center;
-      font-weight: 600;
+      border: 1px solid transparent;
+      border-radius: vars.$border-radius;
+
       font-size: 14px;
+      font-weight: 600;
       line-height: 1.2;
+
+      text-align: center;
 
       transition: background-color vars.$duration-base ease-in-out,
         border-color vars.$duration-base ease-in-out;
 
       cursor: pointer;
+
       @include mixins.noselect;
 
       &:hover {
@@ -79,24 +90,22 @@
       }
 
       span {
+        font-size: 14px;
+        font-weight: 600;
         color: #fff;
       }
 
       .delimiter {
         width: 1px;
         height: 20px;
-        background-color: rgba(255, 255, 255, 0.25);
         margin: 0 10px;
+
+        background-color: rgb(255 255 255 / 25%);
       }
 
       svg {
         margin-right: 6px;
         margin-bottom: 1px;
-      }
-
-      span {
-        font-weight: 600;
-        font-size: 14px;
       }
     }
   }
@@ -120,15 +129,17 @@
 
       .buttons {
         position: static;
-        transform: none;
         z-index: auto;
 
-        background: transparent;
+        width: auto;
         padding: 0;
+
+        background: transparent;
+        border: none;
         border-radius: 0;
         box-shadow: none;
-        border: none;
-        width: auto;
+
+        transform: none;
 
         .price,
         .delimiter {
@@ -140,6 +151,7 @@
         min-width: 100px;
         margin-left: 20px;
         padding: 12px 25px;
+
         font-size: 16px;
         line-height: 23px;
 

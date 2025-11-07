@@ -3,13 +3,15 @@
 @use 'sass:color';
 
 .root {
-  text-align: center;
   margin: 200px auto;
 
+  text-align: center;
+
   h2 {
+    margin-bottom: 15px;
+
     font-size: 24px;
     font-weight: 700;
-    margin-bottom: 15px;
   }
 
   .description {
@@ -21,16 +23,20 @@
 
   .button {
     display: inline-block;
-    background-color: vars.$primary;
-    border-radius: 30px;
-    padding: 10px 20px;
+
     min-width: 100px;
+    padding: 10px 20px;
+
+    background-color: vars.$secondary;
+    border: 1px solid transparent;
+    border-radius: 30px;
+
     text-align: center;
-    cursor: pointer;
+
     transition: background-color vars.$duration-base ease-in-out,
       border-color vars.$duration-base ease-in-out;
-    border: 1px solid transparent;
-    @include mixins.noselect;
+
+    cursor: pointer;
 
     &,
     span {
@@ -50,15 +56,16 @@
 
     &:active {
       background-color: color.adjust(vars.$primary, $lightness: 12%);
+
       transform: translateY(1px);
     }
-
-    background-color: vars.$secondary;
 
     &:hover,
     &:active {
       background-color: color.adjust(vars.$secondary, $lightness: 10%);
     }
+
+    @include mixins.noselect;
   }
 
   // Tablet

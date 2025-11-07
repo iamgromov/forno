@@ -10,25 +10,29 @@
 }
 
 * {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  outline: none;
-  font-family: 'Proxima Nova', Roboto, system-ui, Tahoma, sans-serif;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  outline: none;
+
+  font-family: 'Proxima Nova', Roboto, system-ui, Tahoma, sans-serif;
+
+  list-style: none;
 }
 
 html {
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
   scrollbar-gutter: stable both-edges;
+  text-size-adjust: 100%;
 }
 
 body {
+  background-color: vars.$background;
+
+  color: vars.$secondary;
+
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  background-color: vars.$background;
-  color: vars.$secondary;
 }
 
 a,
@@ -48,8 +52,8 @@ h1 {
 }
 
 h2 {
-  font-weight: 600;
   font-size: 28px;
+  font-weight: 600;
   line-height: 30px;
 }
 
@@ -58,10 +62,6 @@ a {
 }
 
 @mixin noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
+  -webkit-touch-callout: none; /* iOS Safari */ /* Safari */ /* Konqueror HTML */ /* Old versions of Firefox */ /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }

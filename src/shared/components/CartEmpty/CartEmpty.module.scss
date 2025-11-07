@@ -4,12 +4,14 @@
 
 .cart {
   margin: 40px auto;
+
   text-align: center;
 
   h2 {
+    margin-bottom: 15px;
+
     font-size: 24px;
     font-weight: 700;
-    margin-bottom: 15px;
   }
 
   p {
@@ -21,21 +23,28 @@
 
   img {
     display: block;
+
     width: 200px;
     margin: 45px auto 60px;
   }
 
   .button {
     display: inline-block;
-    background-color: vars.$secondary;
-    border-radius: 30px;
-    padding: 10px 20px;
+
     min-width: 100px;
+    padding: 10px 20px;
+
+    background-color: vars.$secondary;
+    border: 1px solid transparent;
+    border-radius: 30px;
+
     text-align: center;
-    cursor: pointer;
+
     transition: background-color vars.$duration-base ease-in-out,
       border-color vars.$duration-base ease-in-out;
-    border: 1px solid transparent;
+
+    cursor: pointer;
+
     @include mixins.noselect;
 
     span {
@@ -48,6 +57,7 @@
 
     &:active {
       background-color: color.adjust(vars.$secondary, $lightness: 12%);
+
       transform: translateY(1px);
     }
   }

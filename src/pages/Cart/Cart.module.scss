@@ -4,26 +4,30 @@
 
 .cart {
   width: 90%;
-  margin: 0 auto;
   max-width: 820px;
   margin: 90px auto;
 
   .wrapper {
     .top {
       display: flex;
+
       justify-content: space-between;
       align-items: center;
     }
 
     .title {
       display: flex;
+
       align-items: center;
-      font-size: 32px;
+
       margin: 0;
+
+      font-size: 32px;
 
       svg {
         position: relative;
         top: -2px;
+
         width: 30px;
         height: 30px;
         margin-right: 10px;
@@ -37,21 +41,28 @@
 
     .clear {
       display: flex;
+
       align-items: center;
+
       cursor: pointer;
+
       @include mixins.noselect;
 
       span {
         display: inline-block;
+
         margin-left: 7px;
-        color: #b6b6b6;
+
         font-size: 18px;
+        color: #b6b6b6;
+
         transition: color 0.3s ease-in-out;
       }
 
-      svg,
-      path {
-        transition: all 0.3s ease-in-out;
+      svg {
+        path {
+          transition: all 0.3s ease-in-out;
+        }
       }
 
       &:hover {
@@ -74,6 +85,7 @@
 
       .details {
         display: flex;
+
         justify-content: space-between;
 
         span {
@@ -87,20 +99,28 @@
 
       .buttons {
         display: flex;
+
         justify-content: space-between;
+
         margin-top: 40px;
 
         .button {
           display: inline-block;
-          background-color: vars.$primary;
-          border-radius: 30px;
-          padding: 10px 20px;
+
           min-width: 100px;
+          padding: 10px 20px;
+
+          background-color: vars.$primary;
+          border: 1px solid transparent;
+          border-radius: 30px;
+
           text-align: center;
-          cursor: pointer;
+
           transition: background-color vars.$duration-base ease-in-out,
             border-color vars.$duration-base ease-in-out;
-          border: 1px solid transparent;
+
+          cursor: pointer;
+
           @include mixins.noselect;
 
           &,
@@ -121,21 +141,25 @@
 
           &:active {
             background-color: color.adjust(vars.$primary, $lightness: 12%);
+
             transform: translateY(1px);
           }
         }
 
         .back {
           display: flex;
-          align-items: center;
+
           justify-content: center;
+          align-items: center;
+
           width: 210px;
+
           background-color: vars.$light;
           border-color: color.adjust(vars.$light, $lightness: -10%);
 
           span {
-            color: vars.$gray-400;
             font-weight: 600;
+            color: vars.$gray-400;
           }
 
           &:hover {
@@ -159,17 +183,23 @@
 
         .pay {
           display: inline-block;
-          background-color: vars.$primary;
-          border-radius: 30px;
-          font-size: 16px;
-          font-weight: 600;
+
           width: 210px;
           padding: 16px;
+
+          background-color: vars.$primary;
+          border: 1px solid transparent;
+          border-radius: 30px;
+
+          font-size: 16px;
+          font-weight: 600;
           text-align: center;
-          cursor: pointer;
+
           transition: background-color vars.$duration-base ease-in-out,
             border-color vars.$duration-base ease-in-out;
-          border: 1px solid transparent;
+
+          cursor: pointer;
+
           @include mixins.noselect;
         }
       }

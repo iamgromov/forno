@@ -2,12 +2,13 @@
 
 .wrapper {
   width: calc(100vw - 30px);
+  max-width: 1400px;
 
   height: 100%;
-  background-color: #fff;
   margin: 0 auto;
+
+  background-color: #fff;
   border-radius: 10px;
-  max-width: 1400px;
 
   @media (min-width: vars.$breakpoint-md) {
     width: calc(100vw - 100px);

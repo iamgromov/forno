@@ -4,36 +4,44 @@
   position: relative;
 
   .icon {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+
     width: 16px;
     height: 16px;
+
     opacity: 0.5;
-    position: absolute;
-    left: 16px;
-    top: 16px;
   }
 
   .input {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 15px 20px 15px 40px;
     width: auto;
     max-width: 300px;
+    padding: 15px 20px 15px 40px;
+
+    border: 1px solid rgb(0 0 0 / 10%);
     border-radius: vars.$border-radius;
+
     font-size: 14px;
+
     transition: all 0.15s ease-in-out;
 
     &:focus {
-      border: 1px solid rgba(0, 0, 0, 0.2);
+      border: 1px solid rgb(0 0 0 / 20%);
     }
   }
 
   .clear {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+
     width: 30px;
     height: 30px;
-    opacity: 0.5;
-    position: absolute;
-    right: 20px;
-    top: 10px;
     padding: 10px;
+
+    opacity: 0.5;
+
     cursor: pointer;
 
     &:hover {
@@ -43,15 +51,17 @@
 
   @media (min-width: vars.$breakpoint-md) {
     .icon {
+      top: 16px;
+      left: 16px;
+
       width: 20px;
       height: 20px;
-      left: 16px;
-      top: 16px;
     }
 
     .input {
-      font-size: 16px;
       padding: 15px 20px 15px 45px;
+
+      font-size: 16px;
     }
   }
 }

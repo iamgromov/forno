@@ -6,18 +6,23 @@
 
     a {
       display: inline-block;
-      color: vars.$primary;
-      text-align: center;
-      line-height: 42px;
+
       width: 45px;
       height: 45px;
+      margin-right: 10px;
+
       border: 1px solid vars.$primary;
       border-radius: 30px;
-      margin-right: 10px;
+
+      line-height: 42px;
+      text-align: center;
+      color: vars.$primary;
+
       cursor: pointer;
 
       &:hover {
         background-color: vars.$primary;
+
         color: vars.$light;
       }
     }
@@ -25,8 +30,10 @@
 
   :global {
     .selected {
+      /* stylelint-disable-next-line */
       a {
         background-color: vars.$primary;
+
         color: vars.$light;
       }
     }

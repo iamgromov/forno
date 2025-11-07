@@ -1,4 +1,4 @@
-import type { SortType, Links } from '../types';
+import type { SortType, Links } from 'shared/types';
 
 export const LINKS: Record<Links, string> = {
   REPO: 'https://github.com/iamgromov/forno',

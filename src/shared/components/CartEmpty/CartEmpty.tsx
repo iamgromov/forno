@@ -1,8 +1,8 @@
 import { type FC, type ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 
+import emptyCart from 'assets/img/empty-cart.png';
 import styles from './CartEmpty.module.scss';
-import emptyCart from '../../../assets/img/empty-cart.png';
 
 export const CartEmpty: FC = (): ReactElement => {
   return (

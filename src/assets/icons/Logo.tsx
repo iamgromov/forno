@@ -1,6 +1,6 @@
 import { type FC, type ReactElement } from 'react';
 
-import type { IconProps } from '../../shared/types';
+import type { IconProps } from 'shared/types';
 
 export const Logo: FC<IconProps> = ({ ...props }): ReactElement => {
   return (

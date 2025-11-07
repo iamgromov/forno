@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import axios, { type AxiosResponse } from 'axios';
 
-import { API_URL } from '../../api/config';
-import { STATUS, type IProduct, type ProductsState, type FetchParams } from '../../types';
-import { ACTION_NAMES, SLICE_NAMES } from '../types';
+import { API_URL } from 'shared/api/config';
+import { ACTION_NAMES, SLICE_NAMES } from 'shared/store/types';
+import { STATUS, type IProduct, type ProductsState, type FetchParams } from 'shared/types';
 
 export const fetchProducts = createAsyncThunk<IProduct[], FetchParams, { rejectValue: unknown }>(
   ACTION_NAMES.FETCH_PRODUCTS,

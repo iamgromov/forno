@@ -1,10 +1,10 @@
 import { useCallback, useRef, useState, type ChangeEvent, type FC, type ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
-
 import debounce from 'lodash.debounce';
 
+import { setSearchValue } from 'shared/store';
+
 import styles from './Search.module.scss';
-import { setSearchValue } from '../../store';
 
 export const Search: FC = (): ReactElement => {
   const dispatch = useDispatch();

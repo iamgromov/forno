@@ -1,12 +1,12 @@
 import { type FC, type ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
-import styles from './CartItem.module.scss';
-import { AddIcon, ClearIcon, RemoveIcon } from '../../../assets/icons';
-import { addProduct, removeProduct, removeAllSimilarProducts } from '../../store';
-import { formatRubles } from '../../utils';
+import { addProduct, removeProduct, removeAllSimilarProducts } from 'shared/store';
+import type { ICartItem } from 'shared/types';
+import { formatRubles } from 'shared/utils';
 
-import type { ICartItem } from '../../types';
+import { AddIcon, ClearIcon, RemoveIcon } from 'assets/icons';
+import styles from './CartItem.module.scss';
 
 export const CartItem: FC<ICartItem> = ({
   id,

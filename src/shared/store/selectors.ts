@@ -1,4 +1,4 @@
-import type { RootState } from '.';
+import type { RootState } from './';
 
 export const selectors = {
   cartSelector: (state: RootState) => state.cart,

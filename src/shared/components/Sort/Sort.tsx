@@ -1,14 +1,13 @@
 import { memo, useEffect, useRef, useState, type FC, type ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
-
 import cn from 'classnames';
 
-import styles from './Sort.module.scss';
-import { ArrowUpIcon } from '../../../assets/icons';
-import { SORT_LIST } from '../../constants/';
-import { setSortDirection, setSortType } from '../../store';
+import { SORT_LIST } from 'shared/constants';
+import { setSortDirection, setSortType } from 'shared/store';
+import type { SortType, SortProps } from 'shared/types';
 
-import type { SortType, SortProps } from '../../types';
+import { ArrowUpIcon } from 'assets/icons';
+import styles from './Sort.module.scss';
 
 export const Sort: FC<SortProps> = memo(({ sortDirection, sortType }): ReactElement => {
   const dispatch = useDispatch();

@@ -1,14 +1,13 @@
 import { useEffect, useState, type FC, type ReactElement } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-
 import axios from 'axios';
 
-import style from './Product.module.scss';
-import { API_URL } from '../../shared/api/config';
-import { Loader } from '../../shared/ui';
-import { formatRubles } from '../../shared/utils';
+import { API_URL } from 'shared/api/config';
+import type { IProduct } from 'shared/types';
+import { Loader } from 'shared/ui';
+import { formatRubles } from 'shared/utils';
 
-import type { IProduct } from '../../shared/types';
+import style from './Product.module.scss';
 
 export const Product: FC = (): ReactElement => {
   const [product, setProduct] = useState<IProduct>();

@@ -1,8 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import { SLICE_NAMES } from '../types';
-
-import type { FilterState, SortDirection, SortType } from '../../types';
+import { SLICE_NAMES } from 'shared/store/types';
+import type { FilterState, SortDirection, SortType } from 'shared/types';
 
 const initialState: FilterState = {
   categoryId: 0,

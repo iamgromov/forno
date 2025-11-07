@@ -1,15 +1,15 @@
 import type { FC, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import cn from 'classnames';
 
+import { CartEmpty, CartItem } from 'shared/components';
+import { LINKS } from 'shared/constants';
+import { selectors, clearCart } from 'shared/store';
+import { formatRubles } from 'shared/utils';
+
+import { BackIcon, BasketIcon, CartIcon } from 'assets/icons';
 import styles from './Cart.module.scss';
-import { BackIcon, BasketIcon, CartIcon } from '../../assets/icons';
-import { CartEmpty, CartItem } from '../../shared/components';
-import { LINKS } from '../../shared/constants';
-import { selectors, clearCart } from '../../shared/store';
-import { formatRubles } from '../../shared/utils';
 
 export const Cart: FC = (): ReactElement => {
   const dispatch = useDispatch();

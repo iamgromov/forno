@@ -1,7 +1,8 @@
 import { type FC, type ReactElement } from 'react';
 
+import { LINKS } from 'shared/constants';
+
 import styles from './Footer.module.scss';
-import { LINKS } from '../../constants';
 
 export const Footer: FC = (): ReactElement => {
   return (

@@ -1,6 +1,5 @@
-import { calcTotalPrice } from './calcTotalPrice';
-
-import type { ICartItem } from '../types';
+import type { ICartItem } from 'shared/types';
+import { calcTotalPrice } from 'shared/utils';
 
 export const getCardFromLS = () => {
   const data = localStorage.getItem('cart');

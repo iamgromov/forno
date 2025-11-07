@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 
-import type { IconProps } from '../../shared/types';
+import type { IconProps } from 'shared/types';
 
 export const PlusIcon: FC<IconProps> = ({ ...props }) => {
   return (

@@ -1,7 +1,7 @@
 import { type FC, type ReactElement } from 'react';
 
+import loader from 'assets/img/loader.svg';
 import styles from './Loader.module.scss';
-import loader from '../../../assets/img/loader.svg';
 
 export const Loader: FC = (): ReactElement => {
   return (

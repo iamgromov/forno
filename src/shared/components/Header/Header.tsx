@@ -2,11 +2,12 @@ import { useEffect, useRef, type FC, type ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
-import { Search } from '../';
+import { Search } from 'shared/components';
+import { selectors } from 'shared/store';
+import { formatRubles } from 'shared/utils';
+
+import { CartIcon, Logo } from 'assets/icons';
 import styles from './Header.module.scss';
-import { CartIcon, Logo } from '../../../assets/icons';
-import { selectors } from '../../store';
-import { formatRubles } from '../../utils';
 
 export const Header: FC = (): ReactElement => {
   const { items, totalPrice } = useSelector(selectors.cartSelector);

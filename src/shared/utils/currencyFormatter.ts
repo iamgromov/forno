@@ -1,8 +1,4 @@
-import type {
-  CurrencyConfig,
-  CurrencyFormatOptions,
-  CurrencyType,
-} from '../types/currency.interface';
+import type { CurrencyConfig, CurrencyFormatOptions, CurrencyType } from 'shared/types';
 
 export const formatCurrency = (amount: number, options: CurrencyFormatOptions = {}): string => {
   const { nbsp = true, currency = 'RUB' } = options;
@@ -26,7 +22,7 @@ export const formatCurrency = (amount: number, options: CurrencyFormatOptions = 
 const formatNumberWithSpaces = (number: number, decimalDigits: number, nbsp: boolean): string => {
   const spaceChar = nbsp ? '\u00A0' : ' ';
   const fixedNumber = number.toFixed(decimalDigits);
-  const [integerPart, decimalPart] = fixedNumber.split('.');
+  const [integerPart, decimalPart] = fixedNumber.split('./');
   const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, spaceChar);
 
   return decimalPart

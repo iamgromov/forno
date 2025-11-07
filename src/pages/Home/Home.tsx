@@ -1,12 +1,10 @@
 import { useCallback, useEffect, useRef, type FC, type ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
 import qs from 'qs';
 
-import styles from './Home.module.scss';
-import { Card, Categories, ErrorBlock, Pagination, Sort } from '../../shared/components';
-import { CATEGORIES, SORT_LIST } from '../../shared/constants';
+import { Card, Categories, ErrorBlock, Pagination, Sort } from 'shared/components';
+import { CATEGORIES, SORT_LIST } from 'shared/constants';
 import {
   selectors,
   setCategoryId,
@@ -14,9 +12,11 @@ import {
   setFilters,
   fetchProducts,
   type AppDispatch,
-} from '../../shared/store';
-import { STATUS } from '../../shared/types';
-import { CardSkeleton } from '../../shared/ui';
+} from 'shared/store';
+import { STATUS } from 'shared/types';
+import { CardSkeleton } from 'shared/ui';
+
+import styles from './Home.module.scss';
 
 export const Home: FC = (): ReactElement => {
   const dispatch = useDispatch<AppDispatch>();

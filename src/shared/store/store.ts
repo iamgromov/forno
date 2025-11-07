@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import cart from './slices/cart';
-import filter from './slices/filter';
-import products from './slices/products';
+import cart from 'shared/store/slices/cart';
+import filter from 'shared/store/slices/filter';
+import products from 'shared/store/slices/products';
 
 export const store = configureStore({
   reducer: { cart, filter, products },

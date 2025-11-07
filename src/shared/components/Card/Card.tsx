@@ -1,17 +1,16 @@
 import { useState, type FC, type ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import cn from 'classnames';
 
-import styles from './Card.module.scss';
-import { PlusIcon } from '../../../assets/icons';
-import placeholder from '../../../assets/img/placeholder.svg';
-import { PRODUCT_TYPES } from '../../constants';
-import { selectors, addProduct } from '../../store';
-import { formatRubles } from '../../utils';
+import { PRODUCT_TYPES } from 'shared/constants';
+import { selectors, addProduct } from 'shared/store';
+import type { ICartItem, IProduct } from 'shared/types';
+import { formatRubles } from 'shared/utils';
 
-import type { ICartItem, IProduct } from '../../types';
+import { PlusIcon } from 'assets/icons';
+import placeholder from 'assets/img/placeholder.svg';
+import styles from './Card.module.scss';
 
 export const Card: FC<IProduct> = ({
   id,

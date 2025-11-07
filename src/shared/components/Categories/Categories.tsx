@@ -1,11 +1,10 @@
 import { memo, type FC, type ReactElement } from 'react';
-
 import cn from 'classnames';
 
-import styles from './Categories.module.scss';
-import { CATEGORIES } from '../../constants';
+import { CATEGORIES } from 'shared/constants';
+import type { CategoriesProps } from 'shared/types';
 
-import type { CategoriesProps } from '../../types';
+import styles from './Categories.module.scss';
 
 export const Categories: FC<CategoriesProps> = memo(
   ({ categoryId, onChangeCategory }): ReactElement => {

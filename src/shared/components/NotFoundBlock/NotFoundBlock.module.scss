@@ -33,7 +33,8 @@
 
     text-align: center;
 
-    transition: background-color vars.$duration-base ease-in-out,
+    transition:
+      background-color vars.$duration-base ease-in-out,
       border-color vars.$duration-base ease-in-out;
 
     cursor: pointer;

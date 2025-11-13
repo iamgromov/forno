@@ -19,6 +19,10 @@
   font-family: 'Proxima Nova', Roboto, system-ui, Tahoma, sans-serif;
 
   list-style: none;
+
+  &::selection {
+    background-color: vars.$primary;
+  }
 }
 
 html {

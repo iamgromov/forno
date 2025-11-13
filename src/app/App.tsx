@@ -1,10 +1,11 @@
 import { lazy, type FC, type ReactElement } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import 'app/app.scss';
-import { Home } from 'pages';
 
+import { Home } from 'pages/index';
 import { MainLayout } from 'shared/layouts';
 import { LazyLoader } from 'shared/ui';
+
+import 'app/app.scss';
 
 const Cart = lazy(() => import('../pages').then((module) => ({ default: module.Cart })));
 const Product = lazy(() => import('../pages').then((module) => ({ default: module.Product })));

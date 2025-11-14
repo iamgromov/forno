@@ -1,4 +1,4 @@
-import { lazy, type FC, type ReactElement } from 'react';
+import { type FC, lazy, type ReactElement } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { Home } from 'pages/index';

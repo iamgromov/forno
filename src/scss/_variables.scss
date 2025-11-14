@@ -23,7 +23,7 @@ $gray-800: #343a40;
 $gray-900: #212529;
 
 // Состояния
-$disabled: #6c757d;
+$disabled: $gray-600;
 $hover: color.adjust($primary, $lightness: 10%);
 $active: color.adjust($primary, $lightness: 15%);
 $focus: color.adjust($primary, $lightness: 20%);

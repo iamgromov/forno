@@ -5,7 +5,7 @@ import cn from 'classnames';
 
 import { CartEmpty, CartItem } from 'shared/components';
 import { LINKS } from 'shared/constants';
-import { selectors, clearCart } from 'shared/store';
+import { clearCart, selectors } from 'shared/store';
 import { formatRubles } from 'shared/utils';
 
 import { BackIcon, BasketIcon, CartIcon } from 'assets/icons';

@@ -1,7 +1,7 @@
 import { type FC, type ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { addProduct, removeProduct, removeAllSimilarProducts } from 'shared/store';
+import { addProduct, removeAllSimilarProducts, removeProduct } from 'shared/store';
 import type { ICartItem } from 'shared/types';
 import { formatRubles } from 'shared/utils';
 

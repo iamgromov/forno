@@ -6,11 +6,11 @@ import qs from 'qs';
 import { Card, Categories, ErrorBlock, Pagination, Sort } from 'shared/components';
 import { CATEGORIES, SORT_LIST } from 'shared/constants';
 import {
+  fetchProducts,
   selectors,
   setCategoryId,
   setCurrentPage,
   setFilters,
-  fetchProducts,
   type AppDispatch,
 } from 'shared/store';
 import { STATUS } from 'shared/types';

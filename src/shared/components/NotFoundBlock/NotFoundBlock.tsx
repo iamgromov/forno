@@ -7,9 +7,7 @@ export const NotFoundBlock: FC = (): ReactElement => {
   return (
     <div className={styles.root}>
       <h2>
-        😔
-        <br />
-        Ничего не найдено
+        Ничего не найдено <span>😔</span>
       </h2>
       <p className={styles.description}>
         К сожалению данная страница отсутствует в нашем интернет-магазине

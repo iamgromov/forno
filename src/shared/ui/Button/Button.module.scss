@@ -1,0 +1,110 @@
+@use 'scss/variables' as vars;
+@use 'scss/mixins' as mixins;
+@use 'sass:color';
+
+.button {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: vars.$btn-padding-y vars.$btn-padding-x;
+
+  border-radius: vars.$btn-border-radius;
+
+  font-weight: vars.$font-weight-semibold;
+
+  text-align: center;
+
+  transition: background-color vars.$duration-base ease-in-out;
+
+  cursor: pointer;
+
+  @include mixins.noselect;
+
+  .leftIcon,
+  .rightIcon {
+    margin-top: 2px;
+  }
+
+  .leftIcon {
+    margin-right: 12px;
+  }
+
+  .rightIcon {
+    margin-left: 12px;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.primary,
+.secondary {
+  svg {
+    path {
+      stroke: vars.$light;
+      stroke-width: 2;
+    }
+  }
+
+  span {
+    color: vars.$light;
+  }
+}
+
+.primary {
+  background-color: vars.$primary;
+
+  &:hover {
+    background-color: color.adjust(vars.$primary, $lightness: 10%);
+  }
+
+  &:active {
+    background-color: color.adjust(vars.$primary, $lightness: 15%);
+  }
+}
+
+.secondary {
+  background-color: vars.$secondary;
+
+  &:hover {
+    background-color: color.adjust(vars.$secondary, $lightness: 10%);
+  }
+
+  &:active {
+    background-color: color.adjust(vars.$secondary, $lightness: 15%);
+  }
+}
+
+.outline {
+  background-color: vars.$background;
+  border: 1px solid vars.$primary;
+
+  svg {
+    path {
+      stroke: vars.$primary;
+      stroke-width: 2;
+    }
+  }
+
+  span {
+    color: vars.$primary;
+  }
+
+  &:hover,
+  &:active {
+    background-color: vars.$primary;
+
+    svg {
+      path {
+        stroke: vars.$light;
+      }
+    }
+
+    span {
+      color: vars.$light;
+    }
+  }
+}

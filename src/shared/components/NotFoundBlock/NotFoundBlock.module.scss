@@ -1,86 +1,33 @@
 @use 'scss/variables' as vars;
 @use 'scss/mixins' as mixins;
-@use 'sass:color';
 
 .root {
-  margin: 200px auto;
+  min-height: calc(100vh - 300px);
+  margin: vars.$spacing-xl 0;
 
   text-align: center;
 
-  h2 {
-    margin-bottom: 15px;
+  @include mixins.center-children(column);
 
-    font-size: 24px;
-    font-weight: 700;
+  .title {
+    margin-bottom: vars.$spacing-md;
   }
 
   .description {
-    font-size: 16px;
-    line-height: 1.45;
-    letter-spacing: 0.01em;
-    color: #777;
-  }
-
-  .button {
-    display: inline-block;
-
-    min-width: 100px;
-    padding: 10px 20px;
-
-    background-color: vars.$secondary;
-    border: 1px solid transparent;
-    border-radius: 30px;
-
-    text-align: center;
-
-    transition:
-      background-color vars.$duration-base ease-in-out,
-      border-color vars.$duration-base ease-in-out;
-
-    cursor: pointer;
-
-    &,
-    span {
-      color: #fff;
-    }
-
-    i,
-    span,
-    path,
-    svg {
-      transition: all vars.$duration-base ease-in-out;
-    }
-
-    &:hover {
-      background-color: color.adjust(vars.$primary, $lightness: 8%);
-    }
-
-    &:active {
-      background-color: color.adjust(vars.$primary, $lightness: 12%);
-
-      transform: translateY(1px);
-    }
-
-    &:hover,
-    &:active {
-      background-color: color.adjust(vars.$secondary, $lightness: 10%);
-    }
-
-    @include mixins.noselect;
+    max-width: 400px;
+    margin-bottom: vars.$spacing-xl;
   }
 
   // Tablet
   @media (min-width: vars.$breakpoint-md) {
-    h2 {
-      font-size: 36px;
+    .title {
+      font-size: vars.$font-size-xxl;
     }
 
     .description {
-      font-size: 20px;
-    }
+      max-width: 600px;
 
-    img {
-      width: 300px;
+      font-size: vars.$font-size-lg;
     }
   }
 }

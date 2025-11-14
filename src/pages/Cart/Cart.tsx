@@ -1,11 +1,10 @@
 import type { FC, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import cn from 'classnames';
 
 import { CartEmpty, CartItem } from 'shared/components';
 import { LINKS } from 'shared/constants';
 import { clearCart, selectors } from 'shared/store';
+import { Button } from 'shared/ui';
 import { formatRubles } from 'shared/utils';
 
 import { BackIcon, BasketIcon, CartIcon } from 'assets/icons';
@@ -55,19 +54,14 @@ export const Cart: FC = (): ReactElement => {
             </span>
           </div>
           <div className={styles.buttons}>
-            <Link to='/' className={cn(styles.button, styles.back)}>
-              <BackIcon />
+            <Button
+              to='/'
+              variant='secondary'
+              title='Вернуться&nbsp;назад'
+              leftIcon={<BackIcon />}
+            />
 
-              <span>Вернуться назад</span>
-            </Link>
-            <a
-              href={LINKS.STUB}
-              rel='noopener noreferrer'
-              target='_blank'
-              className={cn(styles.button, styles.pay)}
-            >
-              Оплатить сейчас
-            </a>
+            <Button href={LINKS.STUB} variant='primary' title='Оплатить&nbsp;сейчас' />
           </div>
         </div>
       </div>

@@ -146,64 +146,6 @@
             transform: translateY(1px);
           }
         }
-
-        .back {
-          display: flex;
-
-          justify-content: center;
-          align-items: center;
-
-          width: 210px;
-
-          background-color: vars.$light;
-          border-color: color.adjust(vars.$light, $lightness: -10%);
-
-          span {
-            font-weight: 600;
-            color: vars.$gray-400;
-          }
-
-          &:hover {
-            background-color: color.adjust(vars.$gray-400, $lightness: -90%);
-            border-color: color.adjust(vars.$gray-400, $lightness: -90%);
-
-            span {
-              color: vars.$light;
-            }
-          }
-
-          svg {
-            margin-right: 12px;
-
-            path {
-              fill: transparent;
-              stroke-width: 2;
-            }
-          }
-        }
-
-        .pay {
-          display: inline-block;
-
-          width: 210px;
-          padding: 16px;
-
-          background-color: vars.$primary;
-          border: 1px solid transparent;
-          border-radius: 30px;
-
-          font-size: 16px;
-          font-weight: 600;
-          text-align: center;
-
-          transition:
-            background-color vars.$duration-base ease-in-out,
-            border-color vars.$duration-base ease-in-out;
-
-          cursor: pointer;
-
-          @include mixins.noselect;
-        }
       }
     }
   }

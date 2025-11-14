@@ -28,18 +28,13 @@ $hover: color.adjust($primary, $lightness: 10%);
 $active: color.adjust($primary, $lightness: 15%);
 $focus: color.adjust($primary, $lightness: 20%);
 
-// Шрифты
-$font-family-base: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, sans-serif;
-$font-family-heading: 'Georgia', serif;
-$font-family-mono: 'Courier New', monospace;
-
 // Размеры шрифтов
 $font-size-xs: 0.75rem; // 12px
 $font-size-sm: 0.875rem; // 14px
 $font-size-base: 1rem; // 16px
-$font-size-lg: 1.125rem; // 18px
-$font-size-xl: 1.25rem; // 20px
-$font-size-xxl: 1.5rem; // 24px
+$font-size-lg: 1.5rem; // 24px
+$font-size-xl: 2rem; // 32px
+$font-size-xxl: 2.5rem; // 40px
 
 // Начертания
 $font-weight-light: 300;
@@ -92,7 +87,7 @@ $border-width: 1px;
 $border-width-thick: 2px;
 $border-color: $gray-200;
 $border-color-light: $gray-400;
-$border-radius: 30px;
+$border-radius: 32px;
 
 // Тайминги
 $duration-fast: 0.1s;
@@ -113,9 +108,9 @@ $z-index-tooltip: 1060;
 $z-index-toast: 1070;
 
 // Кнопки
-$btn-padding-y: 0.75rem;
-$btn-padding-x: 1.5rem;
-$btn-border-radius: $border-radius;
+$btn-padding-y: 1rem;
+$btn-padding-x: 2rem;
+$btn-border-radius: 2rem;
 
 // Инпуты
 $input-padding-y: 0.75rem;

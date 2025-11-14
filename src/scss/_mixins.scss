@@ -1,8 +1,19 @@
+// Выравнивает блоки по центру
+@mixin center-children($flex-direction: row) {
+  display: flex;
+
+  flex-direction: $flex-direction;
+  justify-content: center;
+  align-items: center;
+}
+
+// Предотвращает выделение текста и элементов пользователем
 @mixin noselect {
   -webkit-touch-callout: none;
   user-select: none;
 }
 
+// Ограничивает количество видимых строк текста в блоке
 @mixin line-clamp($lines) {
   display: block;
 
@@ -17,6 +28,7 @@
   line-clamp: $lines;
 }
 
+// Скрывает скроллбар у элемента,
 @mixin hide-scrollbar {
   -ms-overflow-style: none;
 

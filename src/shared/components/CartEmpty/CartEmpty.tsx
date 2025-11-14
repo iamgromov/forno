@@ -1,24 +1,25 @@
 import { type FC, type ReactElement } from 'react';
-import { Link } from 'react-router-dom';
+
+import { Button } from 'shared/ui';
 
 import emptyCart from 'assets/img/empty-cart.png';
 import styles from './CartEmpty.module.scss';
 
 export const CartEmpty: FC = (): ReactElement => {
   return (
-    <div className={styles.cart}>
-      <h2>
-        Корзина пустая <span>😔</span>
+    <div className={styles.root}>
+      <h2 className={styles.title}>
+        Корзина пустая&nbsp;<span>😔</span>
       </h2>
-      <p>
-        Вероятнее всего, вы ещё не заказывали пиццу.
-        <br />
-        Для того, чтобы заказать пиццу, перейди на главную страницу.
+
+      <p className={styles.description}>
+        Вероятнее всего, вы&nbsp;ещё ничего не&nbsp;добавили. Для&nbsp;того, чтобы начать собирать
+        заказ, перейдите на&nbsp;главную страницу
       </p>
-      <img src={emptyCart} alt='Пустая корзина' />
-      <Link to='/' className={styles.button}>
-        <span>Вернуться назад</span>
-      </Link>
+
+      <img className={styles.image} src={emptyCart} alt='Пустая корзина' />
+
+      <Button to='/' variant='secondary' title='К&nbsp;покупкам' />
     </div>
   );
 };

@@ -1,20 +1,33 @@
-.wrapper {
-  width: 620px;
-  margin: 100px auto;
+@use 'scss/variables' as vars;
+@use 'scss/mixins' as mixins;
+
+.root {
+  min-height: calc(100vh - 474px);
+  margin: vars.$spacing-xl 0;
 
   text-align: center;
 
-  h2 {
-    margin-bottom: 15px;
+  @include mixins.center-children(column);
 
-    font-size: 36px;
-    font-weight: 700;
+  .title {
+    margin-bottom: vars.$spacing-md;
   }
 
-  p {
-    font-size: 20px;
-    line-height: 1.45;
-    letter-spacing: 0.01em;
-    color: #777;
+  .description {
+    max-width: 400px;
+    margin-bottom: vars.$spacing-xl;
+  }
+
+  // Tablet
+  @media (min-width: vars.$breakpoint-md) {
+    .title {
+      font-size: vars.$font-size-xxl;
+    }
+
+    .description {
+      max-width: 600px;
+
+      font-size: vars.$font-size-lg;
+    }
   }
 }

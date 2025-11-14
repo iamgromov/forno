@@ -12,7 +12,7 @@ export const NotFoundBlock: FC = (): ReactElement => {
       </h2>
 
       <p className={styles.description}>
-        К&nbsp;сожалению данная страница отсутствует в&nbsp;нашем&nbsp;магазине
+        К&nbsp;сожалению, данная страница отсутствует в&nbsp;нашем&nbsp;магазине
       </p>
 
       <Button to='/' variant='secondary' title='На&nbsp;главную' />

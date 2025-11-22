@@ -8,6 +8,8 @@
   justify-content: center;
   align-items: center;
 
+  gap: 12px;
+
   padding: vars.$btn-padding-y vars.$btn-padding-x;
 
   border-radius: vars.$btn-border-radius;
@@ -25,14 +27,6 @@
   .leftIcon,
   .rightIcon {
     margin-top: 2px;
-  }
-
-  .leftIcon {
-    margin-right: 12px;
-  }
-
-  .rightIcon {
-    margin-left: 12px;
   }
 
   &:active {
